@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="ntBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e2e2e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="ntHighlight" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#cccccc;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+  
+  <!-- NT扫描背景 -->
+  <rect width="400" height="300" fill="url(#ntBg)"/>
+  
+  <!-- 扫描网格 -->
+  <defs>
+    <pattern id="ntGrid" width="15" height="15" patternUnits="userSpaceOnUse">
+      <path d="M 15 0 L 0 0 0 15" fill="none" stroke="#333" stroke-width="0.3" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#ntGrid)"/>
+  
+  <!-- 胎儿头部轮廓 -->
+  <ellipse cx="200" cy="130" rx="50" ry="45" fill="url(#ntHighlight)" opacity="0.7"/>
+  
+  <!-- 头骨轮廓 -->
+  <path d="M 160 120 Q 200 100 240 120 Q 240 140 240 160 Q 200 170 160 160 Q 160 140 160 120" 
+        stroke="#ffffff" stroke-width="2" fill="none" opacity="0.8"/>
+  
+  <!-- 颈部透明带（NT）测量区域 -->
+  <path d="M 180 160 Q 185 165 190 160" stroke="#ffff00" stroke-width="2" fill="none" opacity="0.9"/>
+  <path d="M 185 162 Q 190 167 195 162" stroke="#ffff00" stroke-width="1" fill="none" opacity="0.7"/>
+  
+  <!-- NT测量线 -->
+  <line x1="180" y1="160" x2="195" y2="162" stroke="#ff0000" stroke-width="1.5" opacity="0.9"/>
+  
+  <!-- 测量标记点 -->
+  <circle cx="180" cy="160" r="2" fill="#ff0000" opacity="0.9"/>
+  <circle cx="195" cy="162" r="2" fill="#ff0000" opacity="0.9"/>
+  
+  <!-- 脊柱 -->
+  <path d="M 200 170 L 205 190 L 210 210" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- 心脏 -->
+  <circle cx="190" cy="180" r="3" fill="#ff6b6b" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- NT测量值显示 -->
+  <text x="220" y="165" font-family="monospace" font-size="12" fill="#ffff00">NT: 1.2mm</text>
+  <line x1="195" y1="162" x2="215" y2="165" stroke="#ffff00" stroke-width="1" opacity="0.7"/>
+  
+  <!-- 超声波信息 -->
+  <text x="20" y="25" font-family="monospace" font-size="14" fill="#00ff00">NT SCAN</text>
+  <text x="20" y="45" font-family="monospace" font-size="10" fill="#00ff00">NUCHAL TRANSLUCENCY</text>
+  
+  <!-- 测量参数 -->
+  <text x="20" y="270" font-family="monospace" font-size="10" fill="#00ff00">12W+1D</text>
+  <text x="120" y="270" font-family="monospace" font-size="10" fill="#00ff00">CRL: 5.3cm</text>
+  <text x="250" y="270" font-family="monospace" font-size="10" fill="#00ff00">NT: 1.2mm</text>
+  
+  <!-- 正常范围指示 -->
+  <text x="300" y="25" font-family="monospace" font-size="10" fill="#00ff00">NORMAL RANGE</text>
+  <text x="300" y="40" font-family="monospace" font-size="9" fill="#00ff00">&lt; 2.5mm</text>
+  
+  <!-- 边框 -->
+  <rect x="5" y="5" width="390" height="290" fill="none" stroke="#444" stroke-width="2"/>
+  
+  <!-- 十字准线 -->
+  <line x1="200" y1="0" x2="200" y2="300" stroke="#333" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="150" x2="400" y2="150" stroke="#333" stroke-width="1" opacity="0.3"/>
+</svg>

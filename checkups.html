@@ -1,0 +1,1265 @@
+---
+layout: page
+title: 产检日历
+description: 记录每次产检的详细信息，跟踪宝宝的健康成长
+icon: 🏥
+permalink: /checkups/
+---
+
+<!-- 产检概览卡片 -->
+<section class="checkup-overview">
+    <div class="overview-grid">
+        <!-- 下次产检 -->
+        <div class="overview-card next-checkup">
+            <div class="card-icon">📅</div>
+            <div class="card-content">
+                <h3 class="card-title">下次产检</h3>
+                <div class="card-value" id="next-checkup-date">2024年2月15日</div>
+                <div class="card-subtitle">还有 <span id="days-until-next">7</span> 天</div>
+            </div>
+        </div>
+        
+        <!-- 已完成产检 -->
+        <div class="overview-card completed-checkups">
+            <div class="card-icon">✅</div>
+            <div class="card-content">
+                <h3 class="card-title">已完成产检</h3>
+                <div class="card-value" id="completed-count">8</div>
+                <div class="card-subtitle">次产检记录</div>
+            </div>
+        </div>
+        
+        <!-- 当前孕周 -->
+        <div class="overview-card current-week">
+            <div class="card-icon">🤱</div>
+            <div class="card-content">
+                <h3 class="card-title">当前孕周</h3>
+                <div class="card-value" id="current-week">28</div>
+                <div class="card-subtitle">周 + <span id="current-days">3</span> 天</div>
+            </div>
+        </div>
+        
+        <!-- 距离预产期 -->
+        <div class="overview-card due-date">
+            <div class="card-icon">👶</div>
+            <div class="card-content">
+                <h3 class="card-title">距离预产期</h3>
+                <div class="card-value" id="days-until-due">84</div>
+                <div class="card-subtitle">天</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产检时间轴 -->
+<section class="checkup-timeline">
+    <div class="timeline-header">
+        <h2 class="section-title">产检时间轴</h2>
+        <div class="timeline-filters">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+            <button class="filter-btn" data-filter="upcoming">即将到来</button>
+            <button class="filter-btn" data-filter="important">重要检查</button>
+        </div>
+    </div>
+    
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- 产检记录项 -->
+        <div class="timeline-item completed" data-week="12" data-type="important">
+            <div class="timeline-marker completed">
+                <span class="marker-icon">✅</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card">
+                    <div class="card-header">
+                        <h3 class="checkup-title">NT检查 + 早期唐筛</h3>
+                        <div class="checkup-meta">
+                            <span class="checkup-week">孕12周</span>
+                            <span class="checkup-date">2023年10月15日</span>
+                            <span class="checkup-type important">重要检查</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="checkup-details">
+                            <div class="detail-item">
+                                <span class="detail-label">医院：</span>
+                                <span class="detail-value">市妇幼保健院</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">医生：</span>
+                                <span class="detail-value">张医生</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">NT值：</span>
+                                <span class="detail-value">1.2mm（正常）</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">体重：</span>
+                                <span class="detail-value">58kg（+2kg）</span>
+                            </div>
+                        </div>
+                        <div class="checkup-notes">
+                            <p>宝宝发育良好，NT值在正常范围内。医生建议继续补充叶酸，注意休息。下次产检安排在16周进行中期唐筛。</p>
+                        </div>
+                        <div class="checkup-images">
+                            <div class="image-grid">
+                                <img src="{{ '/assets/images/checkups/nt-scan-12w.jpg' | relative_url }}" alt="12周NT检查" class="checkup-image" loading="lazy">
+                                <img src="{{ '/assets/images/checkups/baby-12w.jpg' | relative_url }}" alt="12周宝宝照片" class="checkup-image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="checkup-actions">
+                            <button class="action-btn" onclick="viewCheckupDetails('checkup-12w')">
+                                <span class="btn-icon">👁️</span>
+                                查看详情
+                            </button>
+                            <button class="action-btn" onclick="editCheckup('checkup-12w')">
+                                <span class="btn-icon">✏️</span>
+                                编辑
+                            </button>
+                            <button class="action-btn" onclick="shareCheckup('checkup-12w')">
+                                <span class="btn-icon">📤</span>
+                                分享
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 更多产检记录... -->
+        <div class="timeline-item completed" data-week="16" data-type="routine">
+            <div class="timeline-marker completed">
+                <span class="marker-icon">✅</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card">
+                    <div class="card-header">
+                        <h3 class="checkup-title">中期唐筛</h3>
+                        <div class="checkup-meta">
+                            <span class="checkup-week">孕16周</span>
+                            <span class="checkup-date">2023年11月12日</span>
+                            <span class="checkup-type routine">常规检查</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="checkup-details">
+                            <div class="detail-item">
+                                <span class="detail-label">医院：</span>
+                                <span class="detail-value">市妇幼保健院</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">医生：</span>
+                                <span class="detail-value">张医生</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">唐筛结果：</span>
+                                <span class="detail-value">低风险</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">体重：</span>
+                                <span class="detail-value">60kg（+4kg）</span>
+                            </div>
+                        </div>
+                        <div class="checkup-notes">
+                            <p>唐筛结果显示低风险，宝宝发育正常。开始感受到胎动，非常激动！医生建议适当运动，控制体重增长。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 即将到来的产检 -->
+        <div class="timeline-item upcoming" data-week="32" data-type="important">
+            <div class="timeline-marker upcoming">
+                <span class="marker-icon">📅</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card upcoming">
+                    <div class="card-header">
+                        <h3 class="checkup-title">胎心监护 + 生长发育评估</h3>
+                        <div class="checkup-meta">
+                            <span class="checkup-week">孕32周</span>
+                            <span class="checkup-date">2024年2月15日</span>
+                            <span class="checkup-type important">重要检查</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="upcoming-info">
+                            <div class="info-item">
+                                <span class="info-icon">🏥</span>
+                                <span class="info-text">市妇幼保健院 产科门诊</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">👩‍⚕️</span>
+                                <span class="info-text">张医生</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">⏰</span>
+                                <span class="info-text">上午 9:30</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📋</span>
+                                <span class="info-text">需要空腹，带好产检手册</span>
+                            </div>
+                        </div>
+                        <div class="checkup-preparation">
+                            <h4 class="prep-title">检查准备：</h4>
+                            <ul class="prep-list">
+                                <li>✅ 提前预约挂号</li>
+                                <li>⏳ 空腹8小时以上</li>
+                                <li>📱 设置提醒闹钟</li>
+                                <li>📋 准备检查清单</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="upcoming-actions">
+                            <button class="action-btn primary" onclick="setReminder('checkup-32w')">
+                                <span class="btn-icon">⏰</span>
+                                设置提醒
+                            </button>
+                            <button class="action-btn" onclick="viewLocation('checkup-32w')">
+                                <span class="btn-icon">📍</span>
+                                查看位置
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产检统计图表 -->
+<section class="checkup-statistics">
+    <h2 class="section-title">产检统计</h2>
+    <div class="stats-grid">
+        <!-- 体重变化图表 -->
+        <div class="stats-card">
+            <h3 class="stats-title">体重变化趋势</h3>
+            <div class="chart-container">
+                <canvas id="weightChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+        
+        <!-- 血压变化图表 -->
+        <div class="stats-card">
+            <h3 class="stats-title">血压变化趋势</h3>
+            <div class="chart-container">
+                <canvas id="bloodPressureChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产检提醒设置 -->
+<section class="checkup-reminders">
+    <h2 class="section-title">产检提醒</h2>
+    <div class="reminder-card">
+        <div class="reminder-header">
+            <h3 class="reminder-title">智能提醒设置</h3>
+            <div class="reminder-toggle">
+                <input type="checkbox" id="reminder-enabled" checked>
+                <label for="reminder-enabled" class="toggle-label">启用提醒</label>
+            </div>
+        </div>
+        <div class="reminder-settings">
+            <div class="setting-item">
+                <label class="setting-label">提前提醒时间：</label>
+                <select class="setting-select" id="reminder-time">
+                    <option value="1">1天前</option>
+                    <option value="2" selected>2天前</option>
+                    <option value="3">3天前</option>
+                    <option value="7">1周前</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <label class="setting-label">提醒方式：</label>
+                <div class="reminder-methods">
+                    <label class="method-option">
+                        <input type="checkbox" checked>
+                        <span class="method-text">浏览器通知</span>
+                    </label>
+                    <label class="method-option">
+                        <input type="checkbox">
+                        <span class="method-text">邮件提醒</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 添加新产检记录按钮 -->
+<div class="floating-action">
+    <button class="fab" onclick="addNewCheckup()" title="添加新产检记录">
+        <span class="fab-icon">➕</span>
+    </button>
+</div>
+
+<style>
+/* 产检页面样式 */
+.checkup-overview {
+    margin-bottom: 50px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.overview-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.overview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    flex-shrink: 0;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.checkup-timeline {
+    margin-bottom: 50px;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #2d3748;
+    font-weight: 700;
+    margin: 0;
+}
+
+.timeline-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border-color: #ff69b4;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #ff69b4, #ff1493);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-item.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -30px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.timeline-marker.completed {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: white;
+}
+
+.timeline-marker.upcoming {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+}
+
+.timeline-content {
+    margin-left: 20px;
+}
+
+.timeline-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.15);
+}
+
+.timeline-card.upcoming {
+    border-left: 4px solid #fbbf24;
+}
+
+.card-header {
+    padding: 25px 25px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.checkup-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.checkup-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.checkup-week,
+.checkup-date {
+    font-size: 0.9rem;
+    color: #666;
+    padding: 5px 12px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.checkup-type {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.checkup-type.important {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.checkup-type.routine {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.checkup-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #666;
+    min-width: 60px;
+}
+
+.detail-value {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.checkup-notes {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.checkup-images {
+    margin-bottom: 20px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.checkup-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.checkup-image:hover {
+    transform: scale(1.05);
+}
+
+.card-footer {
+    padding: 15px 25px 25px;
+}
+
+.checkup-actions,
+.upcoming-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+    border-color: #ff69b4;
+    color: #ff1493;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border-color: #ff69b4;
+}
+
+.action-btn.primary:hover {
+    background: linear-gradient(135deg, #ff1493, #dc143c);
+}
+
+.upcoming-info {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info-icon {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.info-text {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.checkup-preparation {
+    background: #fff7ed;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #fbbf24;
+}
+
+.prep-title {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.prep-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prep-list li {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.checkup-statistics {
+    margin-bottom: 50px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.stats-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+}
+
+.stats-title {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.chart-container {
+    position: relative;
+    height: 200px;
+}
+
+.checkup-reminders {
+    margin-bottom: 50px;
+}
+
+.reminder-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+}
+
+.reminder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reminder-title {
+    font-size: 1.2rem;
+    color: #2d3748;
+    font-weight: 600;
+    margin: 0;
+}
+
+.reminder-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-label {
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+}
+
+.reminder-settings {
+    display: grid;
+    gap: 20px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.setting-label {
+    font-weight: 500;
+    color: #666;
+    min-width: 120px;
+}
+
+.setting-select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.reminder-methods {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.method-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.floating-action {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+}
+
+.fab-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 30px;
+    }
+    
+    .timeline-marker {
+        left: -25px;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        margin-left: 15px;
+    }
+    
+    .checkup-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .setting-label {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .overview-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .card-value {
+        font-size: 1.7rem;
+    }
+    
+    .timeline-filters {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        text-align: center;
+        min-width: 0;
+    }
+    
+    .checkup-actions,
+    .upcoming-actions {
+        justify-content: center;
+    }
+    
+    .floating-action {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .fab {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .fab-icon {
+        font-size: 1.3rem;
+    }
+}
+</style>
+
+<script>
+// 产检页面JavaScript功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化页面
+    initCheckupPage();
+    
+    // 绑定过滤器事件
+    bindFilterEvents();
+    
+    // 初始化图表
+    initCharts();
+    
+    // 更新统计数据
+    updateStatistics();
+});
+
+// 初始化产检页面
+function initCheckupPage() {
+    // 计算并更新孕期相关数据
+    updatePregnancyData();
+    
+    // 设置图片点击事件
+    bindImageEvents();
+    
+    // 检查提醒权限
+    checkNotificationPermission();
+}
+
+// 更新孕期数据
+function updatePregnancyData() {
+    const pregnancyStart = new Date('2023-07-15'); // 怀孕开始日期
+    const dueDate = new Date('2024-04-15'); // 预产期
+    const today = new Date();
+    
+    // 计算当前孕周
+    const daysSinceStart = Math.floor((today - pregnancyStart) / (1000 * 60 * 60 * 24));
+    const currentWeek = Math.floor(daysSinceStart / 7);
+    const currentDays = daysSinceStart % 7;
+    
+    // 计算距离预产期天数
+    const daysUntilDue = Math.floor((dueDate - today) / (1000 * 60 * 60 * 24));
+    
+    // 更新页面显示
+    const currentWeekElement = document.getElementById('current-week');
+    const currentDaysElement = document.getElementById('current-days');
+    const daysUntilDueElement = document.getElementById('days-until-due');
+    
+    if (currentWeekElement) currentWeekElement.textContent = currentWeek;
+    if (currentDaysElement) currentDaysElement.textContent = currentDays;
+    if (daysUntilDueElement) daysUntilDueElement.textContent = daysUntilDue;
+    
+    // 计算下次产检倒计时
+    const nextCheckupDate = new Date('2024-02-15');
+    const daysUntilNext = Math.floor((nextCheckupDate - today) / (1000 * 60 * 60 * 24));
+    const daysUntilNextElement = document.getElementById('days-until-next');
+    if (daysUntilNextElement) daysUntilNextElement.textContent = daysUntilNext;
+}
+
+// 绑定过滤器事件
+function bindFilterEvents() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            
+            // 过滤时间轴项目
+            timelineItems.forEach(item => {
+                let show = true;
+                
+                switch(filter) {
+                    case 'completed':
+                        show = item.classList.contains('completed');
+                        break;
+                    case 'upcoming':
+                        show = item.classList.contains('upcoming');
+                        break;
+                    case 'important':
+                        show = item.dataset.type === 'important';
+                        break;
+                    case 'all':
+                    default:
+                        show = true;
+                        break;
+                }
+                
+                if (show) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+}
+
+// 绑定图片事件
+function bindImageEvents() {
+    const images = document.querySelectorAll('.checkup-image');
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            // 创建图片预览模态框
+            showImageModal(this.src, this.alt);
+        });
+    });
+}
+
+// 显示图片模态框
+function showImageModal(src, alt) {
+    // 创建模态框HTML
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+        <div class="modal-backdrop" onclick="closeImageModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeImageModal()">×</button>
+            <img src="${src}" alt="${alt}" class="modal-image">
+            <div class="modal-caption">${alt}</div>
+        </div>
+    `;
+    
+    // 添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .modal-caption {
+            padding: 15px;
+            text-align: center;
+            color: #333;
+            font-weight: 500;
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(modal);
+    
+    // 防止背景滚动
+    document.body.style.overflow = 'hidden';
+    
+    // 设置全局关闭函数
+    window.closeImageModal = function() {
+        document.body.removeChild(modal);
+        document.head.removeChild(style);
+        document.body.style.overflow = '';
+        delete window.closeImageModal;
+    };
+}
+
+// 初始化图表
+function initCharts() {
+    // 体重变化图表
+    const weightCtx = document.getElementById('weightChart');
+    if (weightCtx) {
+        // 这里可以使用Chart.js或其他图表库
+        // 简化版本：绘制简单的线条图
+        drawSimpleChart(weightCtx, {
+            labels: ['12周', '16周', '20周', '24周', '28周'],
+            data: [56, 58, 60, 62, 65],
+            color: '#ff69b4',
+            title: '体重(kg)'
+        });
+    }
+    
+    // 血压变化图表
+    const bpCtx = document.getElementById('bloodPressureChart');
+    if (bpCtx) {
+        drawSimpleChart(bpCtx, {
+            labels: ['12周', '16周', '20周', '24周', '28周'],
+            data: [110, 115, 112, 118, 116],
+            data2: [70, 75, 72, 78, 76],
+            color: '#3b82f6',
+            color2: '#ef4444',
+            title: '血压(mmHg)'
+        });
+    }
+}
+
+// 绘制简单图表
+function drawSimpleChart(canvas, options) {
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    
+    // 清空画布
+    ctx.clearRect(0, 0, width, height);
+    
+    // 设置样式
+    ctx.strokeStyle = options.color;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    
+    // 计算数据点位置
+    const padding = 40;
+    const chartWidth = width - padding * 2;
+    const chartHeight = height - padding * 2;
+    
+    const maxValue = Math.max(...options.data, ...(options.data2 || []));
+    const minValue = Math.min(...options.data, ...(options.data2 || []));
+    const valueRange = maxValue - minValue;
+    
+    // 绘制第一条线
+    ctx.beginPath();
+    options.data.forEach((value, index) => {
+        const x = padding + (index / (options.data.length - 1)) * chartWidth;
+        const y = padding + chartHeight - ((value - minValue) / valueRange) * chartHeight;
+        
+        if (index === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+        
+        // 绘制数据点
+        ctx.save();
+        ctx.fillStyle = options.color;
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    });
+    ctx.stroke();
+    
+    // 绘制第二条线（如果有）
+    if (options.data2) {
+        ctx.strokeStyle = options.color2;
+        ctx.beginPath();
+        options.data2.forEach((value, index) => {
+            const x = padding + (index / (options.data2.length - 1)) * chartWidth;
+            const y = padding + chartHeight - ((value - minValue) / valueRange) * chartHeight;
+            
+            if (index === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+            
+            // 绘制数据点
+            ctx.save();
+            ctx.fillStyle = options.color2;
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        });
+        ctx.stroke();
+    }
+}
+
+// 更新统计数据
+function updateStatistics() {
+    // 统计已完成的产检次数
+    const completedCheckups = document.querySelectorAll('.timeline-item.completed').length;
+    const completedCountElement = document.getElementById('completed-count');
+    if (completedCountElement) {
+        completedCountElement.textContent = completedCheckups;
+    }
+}
+
+// 检查通知权限
+function checkNotificationPermission() {
+    if ('Notification' in window && Notification.permission === 'default') {
+        // 可以在这里请求通知权限
+        // Notification.requestPermission();
+    }
+}
+
+// 产检相关功能函数
+function viewCheckupDetails(checkupId) {
+    console.log('查看产检详情:', checkupId);
+    // 这里可以实现查看详情的逻辑
+}
+
+function editCheckup(checkupId) {
+    console.log('编辑产检记录:', checkupId);
+    // 这里可以实现编辑功能
+}
+
+function shareCheckup(checkupId) {
+    console.log('分享产检记录:', checkupId);
+    // 这里可以实现分享功能
+}
+
+function setReminder(checkupId) {
+    console.log('设置提醒:', checkupId);
+    // 这里可以实现设置提醒功能
+}
+
+function viewLocation(checkupId) {
+    console.log('查看位置:', checkupId);
+    // 这里可以实现查看位置功能
+}
+
+function addNewCheckup() {
+    console.log('添加新产检记录');
+    // 这里可以实现添加新记录的功能
+}
+</script>

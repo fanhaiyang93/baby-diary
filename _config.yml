@@ -1,0 +1,134 @@
+# 宝贝成长记录网站配置文件
+title: "宝贝成长记录"
+description: "记录我们即将到来的小宝贝的成长历程 🎉"
+baseurl: ""
+url: "https://fanhaiyang93.github.io"
+
+# 作者信息
+author:
+  name: "准爸爸准妈妈"
+  email: "your-email@example.com"
+
+# Jekyll构建设置
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+
+# 禁用Sass处理
+sass:
+  style: compressed
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - node_modules
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# 集合配置
+collections:
+  checkups:
+    output: true
+    permalink: /:collection/:name/
+  milestones:
+    output: true
+    permalink: /:collection/:name/
+  photos:
+    output: true
+    permalink: /:collection/:name/
+  diary:
+    output: true
+    permalink: /:collection/:name/
+
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "checkups"
+    values:
+      layout: "checkup"
+  - scope:
+      path: ""
+      type: "milestones"
+    values:
+      layout: "milestone"
+  - scope:
+      path: ""
+      type: "photos"
+    values:
+      layout: "photo"
+  - scope:
+      path: ""
+      type: "diary"
+    values:
+      layout: "diary"
+
+# 网站设置
+timezone: Asia/Shanghai
+lang: zh-CN
+
+# 孕期设置
+pregnancy:
+  start_date: "2024-01-01"  # 请修改为实际怀孕开始日期
+  due_date: "2024-10-01"    # 请修改为实际预产期
+  total_days: 280
+
+# 导航菜单
+navigation:
+  - name: "首页"
+    url: "/"
+    icon: "🏠"
+  - name: "产检日历"
+    url: "/checkups/"
+    icon: "📅"
+  - name: "时间轴"
+    url: "/timeline/"
+    icon: "⏰"
+  - name: "照片相册"
+    url: "/photos/"
+    icon: "📸"
+  - name: "日记日志"
+    url: "/diary.html"
+    icon: "📝"
+  - name: "关于我们"
+    url: "/about.html"
+    icon: "👫"
+  - name: "联系我们"
+    url: "/contact.html"
+    icon: "📞"
+
+# 社交媒体链接
+social:
+  email: "baby.journal@example.com"
+  wechat: "baby_journal_2024"
+  phone: "138-0000-0000"
+
+# 功能开关
+features:
+  comments: true
+  search: true
+  sharing: true
+  print: true
+  notifications: true
+
+# 主题设置
+theme_settings:
+  primary_color: "#ff69b4"
+  secondary_color: "#ff1493"
+  accent_color: "#ffd700"
+  text_color: "#2d3748"
+  background_color: "#ffffff"

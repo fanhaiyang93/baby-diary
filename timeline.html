@@ -1,0 +1,1607 @@
+---
+layout: page
+title: 成长时间轴
+description: 记录宝宝成长的每一个重要时刻和里程碑
+icon: 📅
+permalink: /timeline/
+---
+
+<!-- 时间轴概览 -->
+<section class="timeline-overview">
+    <div class="overview-stats">
+        <div class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-content">
+                <div class="stat-number" id="total-milestones">15</div>
+                <div class="stat-label">重要里程碑</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">📸</div>
+            <div class="stat-content">
+                <div class="stat-number" id="total-memories">42</div>
+                <div class="stat-label">珍贵回忆</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">⏰</div>
+            <div class="stat-content">
+                <div class="stat-number" id="journey-days">180</div>
+                <div class="stat-label">孕期天数</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">💝</div>
+            <div class="stat-content">
+                <div class="stat-number" id="special-moments">8</div>
+                <div class="stat-label">特殊时刻</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 时间轴筛选器 -->
+<section class="timeline-filters">
+    <div class="filter-container">
+        <div class="filter-group">
+            <label class="filter-label">按类型筛选：</label>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="milestone">里程碑</button>
+                <button class="filter-btn" data-filter="checkup">产检</button>
+                <button class="filter-btn" data-filter="photo">照片</button>
+                <button class="filter-btn" data-filter="special">特殊时刻</button>
+            </div>
+        </div>
+        
+        <div class="filter-group">
+            <label class="filter-label">按时间筛选：</label>
+            <div class="time-filters">
+                <button class="time-btn active" data-period="all">全部</button>
+                <button class="time-btn" data-period="first">孕早期</button>
+                <button class="time-btn" data-period="second">孕中期</button>
+                <button class="time-btn" data-period="third">孕晚期</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 主时间轴 -->
+<section class="main-timeline">
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- 时间轴项目 -->
+        
+        <!-- 确认怀孕 -->
+        <div class="timeline-item milestone first-trimester" data-week="4" data-date="2023-08-12">
+            <div class="timeline-marker milestone">
+                <span class="marker-icon">🎉</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card milestone">
+                    <div class="card-header">
+                        <div class="card-date">2023年8月12日</div>
+                        <div class="card-week">孕4周</div>
+                        <div class="card-type milestone">重要里程碑</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">确认怀孕 🎊</h3>
+                        <div class="card-description">
+                            <p>今天用验孕棒测试，出现了两条杠！激动得不知道说什么好，赶紧告诉了老公，我们都激动得哭了。这是我们期待已久的小生命，感谢上天的恩赐！</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">第一次</span>
+                            <span class="tag">激动</span>
+                            <span class="tag">感恩</span>
+                        </div>
+                        <div class="card-images">
+                            <img src="{{ '/assets/images/timeline/pregnancy-test.jpg' | relative_url }}" alt="验孕棒" class="timeline-image" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第一次产检 -->
+        <div class="timeline-item checkup first-trimester" data-week="8" data-date="2023-09-09">
+            <div class="timeline-marker checkup">
+                <span class="marker-icon">🏥</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card checkup">
+                    <div class="card-header">
+                        <div class="card-date">2023年9月9日</div>
+                        <div class="card-week">孕8周</div>
+                        <div class="card-type checkup">产检记录</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">第一次产检 👩‍⚕️</h3>
+                        <div class="card-description">
+                            <p>第一次正式的产检，医生确认了怀孕，并且看到了宝宝的胎心！那一刻听到胎心声音，眼泪就掉下来了。医生说一切都很正常，让我们放心。</p>
+                        </div>
+                        <div class="checkup-details">
+                            <div class="detail-row">
+                                <span class="detail-label">胎心率：</span>
+                                <span class="detail-value">150次/分钟</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">孕囊大小：</span>
+                                <span class="detail-value">2.1cm</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">医生建议：</span>
+                                <span class="detail-value">继续补充叶酸，注意休息</span>
+                            </div>
+                        </div>
+                        <div class="card-images">
+                            <img src="{{ '/assets/images/timeline/first-ultrasound.jpg' | relative_url }}" alt="第一次B超" class="timeline-image" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第一次胎动 -->
+        <div class="timeline-item milestone second-trimester" data-week="18" data-date="2023-11-25">
+            <div class="timeline-marker milestone">
+                <span class="marker-icon">💓</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card milestone">
+                    <div class="card-header">
+                        <div class="card-date">2023年11月25日</div>
+                        <div class="card-week">孕18周</div>
+                        <div class="card-type milestone">重要里程碑</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">第一次感受到胎动 💕</h3>
+                        <div class="card-description">
+                            <p>今天晚上躺在床上的时候，突然感觉到肚子里有轻微的蠕动，就像小鱼在游泳一样！这是宝宝第一次和我打招呼，那种感觉太神奇了，无法用言语形容。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">第一次胎动</span>
+                            <span class="tag">神奇</span>
+                            <span class="tag">母子连心</span>
+                        </div>
+                        <div class="mood-indicator">
+                            <span class="mood-icon">😊</span>
+                            <span class="mood-text">激动兴奋</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 性别揭晓 -->
+        <div class="timeline-item special second-trimester" data-week="20" data-date="2023-12-09">
+            <div class="timeline-marker special">
+                <span class="marker-icon">🎀</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card special">
+                    <div class="card-header">
+                        <div class="card-date">2023年12月9日</div>
+                        <div class="card-week">孕20周</div>
+                        <div class="card-type special">特殊时刻</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">宝宝性别揭晓 👶</h3>
+                        <div class="card-description">
+                            <p>今天的四维彩超终于确认了宝宝的性别！医生告诉我们是个小公主！老公激动得跳起来，说要给女儿买最漂亮的小裙子。我们已经开始讨论名字了。</p>
+                        </div>
+                        <div class="gender-reveal">
+                            <div class="reveal-box">
+                                <div class="reveal-icon">👧</div>
+                                <div class="reveal-text">是个小公主！</div>
+                            </div>
+                        </div>
+                        <div class="card-images">
+                            <img src="{{ '/assets/images/timeline/4d-ultrasound.jpg' | relative_url }}" alt="四维彩超" class="timeline-image" loading="lazy">
+                            <img src="{{ '/assets/images/timeline/gender-reveal.jpg' | relative_url }}" alt="性别揭晓" class="timeline-image" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 胎教开始 -->
+        <div class="timeline-item milestone second-trimester" data-week="22" data-date="2023-12-23">
+            <div class="timeline-marker milestone">
+                <span class="marker-icon">🎵</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card milestone">
+                    <div class="card-header">
+                        <div class="card-date">2023年12月23日</div>
+                        <div class="card-week">孕22周</div>
+                        <div class="card-type milestone">重要里程碑</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">开始胎教 🎼</h3>
+                        <div class="card-description">
+                            <p>今天开始正式的胎教计划！每天给宝宝听古典音乐，读故事书，还会和她说话。希望她能感受到我们的爱，健康快乐地成长。</p>
+                        </div>
+                        <div class="prenatal-activities">
+                            <div class="activity-item">
+                                <span class="activity-icon">🎵</span>
+                                <span class="activity-text">每日音乐胎教</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">📚</span>
+                                <span class="activity-text">睡前故事时间</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon">💬</span>
+                                <span class="activity-text">日常对话交流</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 孕照拍摄 -->
+        <div class="timeline-item photo second-trimester" data-week="26" data-date="2024-01-20">
+            <div class="timeline-marker photo">
+                <span class="marker-icon">📸</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card photo">
+                    <div class="card-header">
+                        <div class="card-date">2024年1月20日</div>
+                        <div class="card-week">孕26周</div>
+                        <div class="card-type photo">珍贵照片</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">孕期写真拍摄 📷</h3>
+                        <div class="card-description">
+                            <p>今天去拍了孕期写真，记录下这个特殊的时刻。肚子已经很明显了，宝宝在里面很活跃。摄影师说我们很有爱，拍出来的照片一定很美。</p>
+                        </div>
+                        <div class="photo-gallery">
+                            <div class="gallery-grid">
+                                <img src="{{ '/assets/images/timeline/maternity-1.jpg' | relative_url }}" alt="孕期写真1" class="gallery-image" loading="lazy">
+                                <img src="{{ '/assets/images/timeline/maternity-2.jpg' | relative_url }}" alt="孕期写真2" class="gallery-image" loading="lazy">
+                                <img src="{{ '/assets/images/timeline/maternity-3.jpg' | relative_url }}" alt="孕期写真3" class="gallery-image" loading="lazy">
+                                <img src="{{ '/assets/images/timeline/maternity-4.jpg' | relative_url }}" alt="孕期写真4" class="gallery-image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 宝宝用品准备 -->
+        <div class="timeline-item milestone third-trimester" data-week="30" data-date="2024-02-10">
+            <div class="timeline-marker milestone">
+                <span class="marker-icon">🛍️</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card milestone">
+                    <div class="card-header">
+                        <div class="card-date">2024年2月10日</div>
+                        <div class="card-week">孕30周</div>
+                        <div class="card-type milestone">重要里程碑</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">开始准备宝宝用品 🍼</h3>
+                        <div class="card-description">
+                            <p>今天开始认真准备宝宝的用品了！买了婴儿床、推车、衣服等等。看着这些小小的东西，更加期待宝宝的到来。每一件都是我们精心挑选的。</p>
+                        </div>
+                        <div class="shopping-list">
+                            <div class="list-category">
+                                <h4 class="category-title">已购买物品：</h4>
+                                <div class="item-grid">
+                                    <div class="item-tag completed">婴儿床</div>
+                                    <div class="item-tag completed">婴儿推车</div>
+                                    <div class="item-tag completed">新生儿衣服</div>
+                                    <div class="item-tag completed">奶瓶套装</div>
+                                    <div class="item-tag completed">尿布台</div>
+                                    <div class="item-tag completed">婴儿浴盆</div>
+                                </div>
+                            </div>
+                            <div class="list-category">
+                                <h4 class="category-title">待购买物品：</h4>
+                                <div class="item-grid">
+                                    <div class="item-tag pending">汽车安全座椅</div>
+                                    <div class="item-tag pending">婴儿监视器</div>
+                                    <div class="item-tag pending">哺乳枕</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 即将到来的事件 -->
+        <div class="timeline-item upcoming milestone third-trimester" data-week="36" data-date="2024-03-15">
+            <div class="timeline-marker upcoming">
+                <span class="marker-icon">⏳</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card upcoming">
+                    <div class="card-header">
+                        <div class="card-date">2024年3月15日</div>
+                        <div class="card-week">孕36周</div>
+                        <div class="card-type upcoming">即将到来</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">足月准备 🎯</h3>
+                        <div class="card-description">
+                            <p>宝宝即将足月，我们正在做最后的准备工作。医院的待产包已经准备好了，家里的婴儿房也布置完毕。期待与小公主的见面！</p>
+                        </div>
+                        <div class="countdown-info">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days-to-full-term">25</span>
+                                <span class="countdown-label">天后足月</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days-to-due">53</span>
+                                <span class="countdown-label">天后预产期</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 预产期 -->
+        <div class="timeline-item upcoming special third-trimester" data-week="40" data-date="2024-04-15">
+            <div class="timeline-marker upcoming special">
+                <span class="marker-icon">👶</span>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-card upcoming special">
+                    <div class="card-header">
+                        <div class="card-date">2024年4月15日</div>
+                        <div class="card-week">孕40周</div>
+                        <div class="card-type special">预产期</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">预产期 - 与宝宝见面 👶💕</h3>
+                        <div class="card-description">
+                            <p>今天是预产期！经过了漫长的等待，终于要见到我们的小公主了。无论她什么时候出生，我们都已经准备好迎接她的到来。</p>
+                        </div>
+                        <div class="due-date-special">
+                            <div class="special-message">
+                                <div class="message-icon">💝</div>
+                                <div class="message-text">"亲爱的宝宝，爸爸妈妈已经等不及要见到你了！"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 时间轴导航 -->
+<section class="timeline-navigation">
+    <div class="nav-container">
+        <button class="nav-btn" id="scroll-to-top" onclick="scrollToTop()">
+            <span class="nav-icon">⬆️</span>
+            <span class="nav-text">回到顶部</span>
+        </button>
+        
+        <div class="timeline-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="timeline-progress"></div>
+            </div>
+            <div class="progress-text">
+                <span id="current-week-display">孕28周</span>
+                <span class="progress-separator">•</span>
+                <span id="progress-percentage">70%</span>
+            </div>
+        </div>
+        
+        <button class="nav-btn" id="scroll-to-latest" onclick="scrollToLatest()">
+            <span class="nav-icon">⬇️</span>
+            <span class="nav-text">最新动态</span>
+        </button>
+    </div>
+</section>
+
+<!-- 添加新记录按钮 -->
+<div class="floating-actions">
+    <div class="fab-group">
+        <button class="fab secondary" onclick="addMilestone()" title="添加里程碑">
+            <span class="fab-icon">🎯</span>
+        </button>
+        <button class="fab secondary" onclick="addPhoto()" title="添加照片">
+            <span class="fab-icon">📸</span>
+        </button>
+        <button class="fab primary" onclick="addMemory()" title="添加回忆">
+            <span class="fab-icon">➕</span>
+        </button>
+    </div>
+</div>
+
+<style>
+/* 时间轴页面样式 */
+.timeline-overview {
+    margin-bottom: 40px;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.15);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.timeline-filters {
+    margin-bottom: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #2d3748;
+    min-width: 100px;
+}
+
+.filter-buttons,
+.time-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn,
+.time-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active,
+.time-btn:hover,
+.time-btn.active {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border-color: #ff69b4;
+    transform: translateY(-1px);
+}
+
+.main-timeline {
+    margin-bottom: 50px;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #ff69b4, #ff1493, #ff69b4);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.timeline-item.hidden {
+    opacity: 0;
+    transform: translateX(-30px);
+    pointer-events: none;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -35px;
+    top: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 2;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-marker.milestone {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+}
+
+.timeline-marker.checkup {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+}
+
+.timeline-marker.photo {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.timeline-marker.special {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.timeline-marker.upcoming {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.timeline-content {
+    margin-left: 30px;
+}
+
+.timeline-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+}
+
+.timeline-card.milestone {
+    border-left: 5px solid #fbbf24;
+}
+
+.timeline-card.checkup {
+    border-left: 5px solid #3b82f6;
+}
+
+.timeline-card.photo {
+    border-left: 5px solid #8b5cf6;
+}
+
+.timeline-card.special {
+    border-left: 5px solid #ef4444;
+}
+
+.timeline-card.upcoming {
+    border-left: 5px solid #6b7280;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.card-header {
+    padding: 20px 25px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-date {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.card-week {
+    font-size: 0.9rem;
+    color: #666;
+    background: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 12px;
+}
+
+.card-type {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.card-type.milestone {
+    background: rgba(251, 191, 36, 0.1);
+    color: #f59e0b;
+}
+
+.card-type.checkup {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.card-type.photo {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.card-type.special {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.card-type.upcoming {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-description {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.card-description p {
+    margin-bottom: 15px;
+}
+
+.card-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 105, 180, 0.1);
+    color: #ff1493;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.card-images,
+.photo-gallery {
+    margin-bottom: 20px;
+}
+
+.timeline-image,
+.gallery-image {
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.timeline-image:hover,
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+.checkup-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #666;
+}
+
+.detail-value {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.mood-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff7ed;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #fbbf24;
+}
+
+.mood-icon {
+    font-size: 1.5rem;
+}
+
+.mood-text {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.gender-reveal {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.reveal-box {
+    background: linear-gradient(135deg, #fce7f3, #f3e8ff);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ff69b4;
+}
+
+.reveal-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.reveal-text {
+    font-size: 1.3rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.prenatal-activities {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.activity-icon {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.activity-text {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.shopping-list {
+    margin-bottom: 20px;
+}
+
+.list-category {
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 1rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.item-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.item-tag {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.item-tag.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.item-tag.pending {
+    background: rgba(251, 191, 36, 0.1);
+    color: #f59e0b;
+}
+
+.countdown-info {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.countdown-item {
+    text-align: center;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff1493;
+    margin-bottom: 5px;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.due-date-special {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.special-message {
+    background: linear-gradient(135deg, #fef7f7, #ffe4e6);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ff69b4;
+}
+
+.message-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.message-text {
+    font-size: 1.1rem;
+    color: #2d3748;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.timeline-navigation {
+    position: sticky;
+    bottom: 20px;
+    z-index: 100;
+    margin-bottom: 30px;
+}
+
+/* .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(240, 240, 240, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+} */
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border-color: #ff69b4;
+}
+
+.nav-icon {
+    font-size: 1rem;
+}
+
+.timeline-progress {
+    flex: 1;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.progress-separator {
+    color: #999;
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.fab-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.fab.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    width: 64px;
+    height: 64px;
+}
+
+.fab.secondary {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.fab-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fab.secondary .fab-icon {
+    font-size: 1.3rem;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 40px;
+    }
+    
+    .timeline-marker {
+        left: -30px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .timeline-content {
+        margin-left: 20px;
+    }
+    
+    .filter-container {
+        gap: 15px;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .filter-label {
+        min-width: auto;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .countdown-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .timeline-filters {
+        padding: 20px 15px;
+    }
+    
+    .filter-buttons,
+    .time-filters {
+        justify-content: center;
+    }
+    
+    .filter-btn,
+    .time-btn {
+        flex: 1;
+        text-align: center;
+        min-width: 0;
+    }
+    
+    .card-body {
+        padding: 20px 15px;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .floating-actions {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .fab {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .fab.primary {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .fab-icon {
+        font-size: 1.3rem;
+    }
+    
+    .fab.secondary .fab-icon {
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+<script>
+// 时间轴页面JavaScript功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化页面
+    initTimelinePage();
+    
+    // 绑定过滤器事件
+    bindTimelineFilters();
+    
+    // 初始化滚动监听
+    initScrollListener();
+    
+    // 更新统计数据
+    updateTimelineStats();
+    
+    // 绑定图片事件
+    bindTimelineImageEvents();
+});
+
+// 初始化时间轴页面
+function initTimelinePage() {
+    // 更新孕期进度
+    updatePregnancyProgress();
+    
+    // 设置时间轴项目的入场动画
+    observeTimelineItems();
+}
+
+// 更新孕期进度
+function updatePregnancyProgress() {
+    const pregnancyStart = new Date('2023-07-15');
+    const dueDate = new Date('2024-04-15');
+    const today = new Date();
+    
+    // 计算孕期天数
+    const totalDays = Math.floor((dueDate - pregnancyStart) / (1000 * 60 * 60 * 24));
+    const currentDays = Math.floor((today - pregnancyStart) / (1000 * 60 * 60 * 24));
+    const progressPercentage = Math.min((currentDays / totalDays) * 100, 100);
+    
+    // 计算当前孕周
+    const currentWeek = Math.floor(currentDays / 7);
+    
+    // 更新进度条
+    const progressFill = document.getElementById('timeline-progress');
+    const currentWeekDisplay = document.getElementById('current-week-display');
+    const progressPercentageDisplay = document.getElementById('progress-percentage');
+    
+    if (progressFill) {
+        progressFill.style.width = progressPercentage + '%';
+    }
+    
+    if (currentWeekDisplay) {
+        currentWeekDisplay.textContent = `孕${currentWeek}周`;
+    }
+    
+    if (progressPercentageDisplay) {
+        progressPercentageDisplay.textContent = Math.round(progressPercentage) + '%';
+    }
+    
+    // 更新倒计时
+    const daysToFullTerm = Math.max(0, Math.floor((new Date('2024-03-15') - today) / (1000 * 60 * 60 * 24)));
+    const daysToDue = Math.max(0, Math.floor((dueDate - today) / (1000 * 60 * 60 * 24)));
+    
+    const daysToFullTermElement = document.getElementById('days-to-full-term');
+    const daysToDueElement = document.getElementById('days-to-due');
+    
+    if (daysToFullTermElement) {
+        daysToFullTermElement.textContent = daysToFullTerm;
+    }
+    
+    if (daysToDueElement) {
+        daysToDueElement.textContent = daysToDue;
+    }
+}
+
+// 绑定时间轴过滤器
+function bindTimelineFilters() {
+    // 类型过滤器
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const timeButtons = document.querySelectorAll('.time-btn');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            applyFilters();
+        });
+    });
+    
+    timeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            timeButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            applyFilters();
+        });
+    });
+    
+    function applyFilters() {
+        const activeTypeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+        const activeTimeFilter = document.querySelector('.time-btn.active').dataset.period;
+        
+        timelineItems.forEach(item => {
+            let show = true;
+            
+            // 类型过滤
+            if (activeTypeFilter !== 'all') {
+                show = show && item.classList.contains(activeTypeFilter);
+            }
+            
+            // 时间过滤
+            if (activeTimeFilter !== 'all') {
+                const week = parseInt(item.dataset.week);
+                switch(activeTimeFilter) {
+                    case 'first':
+                        show = show && week <= 12;
+                        break;
+                    case 'second':
+                        show = show && week > 12 && week <= 28;
+                        break;
+                    case 'third':
+                        show = show && week > 28;
+                        break;
+                }
+            }
+            
+            if (show) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+}
+
+// 初始化滚动监听
+function initScrollListener() {
+    let ticking = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollProgress);
+            ticking = true;
+        }
+    });
+    
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        // 这里可以添加滚动进度的视觉反馈
+        
+        ticking = false;
+    }
+}
+
+// 观察时间轴项目的入场动画
+function observeTimelineItems() {
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'all 0.6s ease';
+            observer.observe(item);
+        });
+    }
+}
+
+// 更新时间轴统计
+function updateTimelineStats() {
+    const milestones = document.querySelectorAll('.timeline-item.milestone').length;
+    const photos = document.querySelectorAll('.timeline-item.photo').length;
+    const specialMoments = document.querySelectorAll('.timeline-item.special').length;
+    const totalMemories = document.querySelectorAll('.timeline-item').length;
+    
+    const totalMilestonesElement = document.getElementById('total-milestones');
+    const totalMemoriesElement = document.getElementById('total-memories');
+    const specialMomentsElement = document.getElementById('special-moments');
+    
+    if (totalMilestonesElement) {
+        animateNumber(totalMilestonesElement, milestones);
+    }
+    
+    if (totalMemoriesElement) {
+        animateNumber(totalMemoriesElement, totalMemories);
+    }
+    
+    if (specialMomentsElement) {
+        animateNumber(specialMomentsElement, specialMoments);
+    }
+    
+    // 更新孕期天数
+    const pregnancyStart = new Date('2023-07-15');
+    const today = new Date();
+    const journeyDays = Math.floor((today - pregnancyStart) / (1000 * 60 * 60 * 24));
+    
+    const journeyDaysElement = document.getElementById('journey-days');
+    if (journeyDaysElement) {
+        animateNumber(journeyDaysElement, journeyDays);
+    }
+}
+
+// 数字动画
+function animateNumber(element, targetNumber) {
+    const startNumber = 0;
+    const duration = 1000;
+    const startTime = performance.now();
+    
+    function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const currentNumber = Math.floor(startNumber + (targetNumber - startNumber) * progress);
+        element.textContent = currentNumber;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        }
+    }
+    
+    requestAnimationFrame(updateNumber);
+}
+
+// 绑定时间轴图片事件
+function bindTimelineImageEvents() {
+    const images = document.querySelectorAll('.timeline-image, .gallery-image');
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            showImageModal(this.src, this.alt);
+        });
+    });
+}
+
+// 显示图片模态框（复用之前的函数）
+function showImageModal(src, alt) {
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+        <div class="modal-backdrop" onclick="closeImageModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeImageModal()">×</button>
+            <img src="${src}" alt="${alt}" class="modal-image">
+            <div class="modal-caption">${alt}</div>
+        </div>
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .modal-caption {
+            padding: 15px;
+            text-align: center;
+            color: #333;
+            font-weight: 500;
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    window.closeImageModal = function() {
+        document.body.removeChild(modal);
+        document.head.removeChild(style);
+        document.body.style.overflow = '';
+        delete window.closeImageModal;
+    };
+}
+
+// 滚动功能
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function scrollToLatest() {
+    const timelineItems = document.querySelectorAll('.timeline-item:not(.hidden)');
+    if (timelineItems.length > 0) {
+        const latestItem = timelineItems[timelineItems.length - 1];
+        latestItem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+}
+
+// 添加功能（占位符）
+function addMilestone() {
+    console.log('添加里程碑');
+    // 这里可以实现添加里程碑的功能
+}
+
+function addPhoto() {
+    console.log('添加照片');
+    // 这里可以实现添加照片的功能
+}
+
+function addMemory() {
+    console.log('添加回忆');
+    // 这里可以实现添加回忆的功能
+}
+</script>

@@ -1,0 +1,108 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 首页 -->
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- 主要页面 -->
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/checkups.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/timeline.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/photos.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/diary.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/about.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}/contact.html</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 博客文章 -->
+    {% for post in site.posts %}
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% endfor %}
+    
+    <!-- 产检记录 -->
+    {% for checkup in site.checkups %}
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}{{ checkup.url }}</loc>
+        <lastmod>{{ checkup.date | date_to_xmlschema }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+    
+    <!-- 里程碑事件 -->
+    {% for milestone in site.milestones %}
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}{{ milestone.url }}</loc>
+        <lastmod>{{ milestone.date | date_to_xmlschema }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+    
+    <!-- 日记文章 -->
+    {% for diary in site.diary %}
+    <url>
+        <loc>{{ site.url }}{{ site.baseurl }}{{ diary.url }}</loc>
+        <lastmod>{{ diary.date | date_to_xmlschema }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {% endfor %}
+    
+    <!-- 静态页面 -->
+    {% for page in site.pages %}
+        {% unless page.url contains '/admin/' or page.url contains '/private/' or page.url contains '404' %}
+        <url>
+            <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+            <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+        </url>
+        {% endunless %}
+    {% endfor %}
+</urlset>

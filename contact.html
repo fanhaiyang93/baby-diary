@@ -1,0 +1,1329 @@
+---
+layout: page
+title: 联系我们
+description: 与我们分享您的祝福和建议
+---
+
+<div class="contact-page">
+    <!-- 页面头部 -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">联系我们</h1>
+            <p class="hero-subtitle">我们很乐意听到您的声音，分享您的祝福或建议</p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span class="feature-icon">💌</span>
+                    <span class="feature-text">发送祝福</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💬</span>
+                    <span class="feature-text">分享建议</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🤝</span>
+                    <span class="feature-text">保持联系</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact-methods">
+        <div class="methods-container">
+            <div class="methods-header">
+                <h2 class="section-title">联系方式</h2>
+                <p class="section-subtitle">选择您喜欢的方式与我们取得联系</p>
+            </div>
+            
+            <div class="methods-grid">
+                <div class="method-card email-card">
+                    <div class="card-icon">
+                        <span class="icon">📧</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">邮箱联系</h3>
+                        <p class="card-description">发送邮件给我们，我们会尽快回复</p>
+                        <div class="card-info">
+                            <span class="info-label">邮箱地址：</span>
+                            <span class="info-value">baby.journal@example.com</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn primary" onclick="openEmailClient()">
+                                <span class="btn-icon">✉️</span>
+                                <span class="btn-text">发送邮件</span>
+                            </button>
+                            <button class="action-btn secondary" onclick="copyEmail()">
+                                <span class="btn-icon">📋</span>
+                                <span class="btn-text">复制邮箱</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card wechat-card">
+                    <div class="card-icon">
+                        <span class="icon">💬</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">微信联系</h3>
+                        <p class="card-description">扫描二维码添加我们的微信</p>
+                        <div class="qr-code">
+                            <div class="qr-placeholder">
+                                <span class="qr-icon">📱</span>
+                                <p>微信二维码</p>
+                                <small>扫描添加好友</small>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn primary" onclick="showQRCode()">
+                                <span class="btn-icon">🔍</span>
+                                <span class="btn-text">查看二维码</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card phone-card">
+                    <div class="card-icon">
+                        <span class="icon">📞</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">电话联系</h3>
+                        <p class="card-description">如有紧急事务，可以直接致电</p>
+                        <div class="card-info">
+                            <span class="info-label">联系电话：</span>
+                            <span class="info-value">138-0000-0000</span>
+                        </div>
+                        <div class="card-info">
+                            <span class="info-label">联系时间：</span>
+                            <span class="info-value">周一至周日 9:00-21:00</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn primary" onclick="makeCall()">
+                                <span class="btn-icon">📞</span>
+                                <span class="btn-text">拨打电话</span>
+                            </button>
+                            <button class="action-btn secondary" onclick="copyPhone()">
+                                <span class="btn-icon">📋</span>
+                                <span class="btn-text">复制号码</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card address-card">
+                    <div class="card-icon">
+                        <span class="icon">📍</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">地址信息</h3>
+                        <p class="card-description">我们的位置信息</p>
+                        <div class="card-info">
+                            <span class="info-label">所在城市：</span>
+                            <span class="info-value">北京市朝阳区</span>
+                        </div>
+                        <div class="card-info">
+                            <span class="info-label">详细地址：</span>
+                            <span class="info-value">朝阳区某某街道某某小区</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn primary" onclick="openMap()">
+                                <span class="btn-icon">🗺️</span>
+                                <span class="btn-text">查看地图</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 留言表单 -->
+    <section class="message-form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <h2 class="section-title">给我们留言</h2>
+                <p class="section-subtitle">分享您的祝福、建议或任何想说的话</p>
+            </div>
+            
+            <div class="form-content">
+                <div class="form-info">
+                    <div class="info-card">
+                        <h3 class="info-title">为什么联系我们？</h3>
+                        <ul class="info-list">
+                            <li class="info-item">
+                                <span class="item-icon">🎉</span>
+                                <span class="item-text">分享您的祝福和好wishes</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="item-icon">💡</span>
+                                <span class="item-text">提供育儿经验和建议</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="item-icon">📝</span>
+                                <span class="item-text">分享您的怀孕故事</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="item-icon">🤝</span>
+                                <span class="item-text">建立友谊和联系</span>
+                            </li>
+                            <li class="info-item">
+                                <span class="item-icon">❓</span>
+                                <span class="item-text">询问问题或寻求帮助</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="response-info">
+                        <h4 class="response-title">回复时间</h4>
+                        <p class="response-text">
+                            我们通常会在24小时内回复您的留言。如果是紧急事务，请直接致电联系。
+                        </p>
+                        <div class="response-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label">小时内回复</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">回复率</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="message-form">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name" class="form-label">
+                                    <span class="label-icon">👤</span>
+                                    <span class="label-text">您的姓名</span>
+                                    <span class="label-required">*</span>
+                                </label>
+                                <input type="text" id="contact-name" name="name" class="form-input" placeholder="请输入您的姓名" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email" class="form-label">
+                                    <span class="label-icon">📧</span>
+                                    <span class="label-text">邮箱地址</span>
+                                    <span class="label-required">*</span>
+                                </label>
+                                <input type="email" id="contact-email" name="email" class="form-input" placeholder="请输入您的邮箱" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-phone" class="form-label">
+                                <span class="label-icon">📞</span>
+                                <span class="label-text">联系电话</span>
+                                <span class="label-optional">(可选)</span>
+                            </label>
+                            <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="请输入您的联系电话">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject" class="form-label">
+                                <span class="label-icon">📋</span>
+                                <span class="label-text">留言主题</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <select id="contact-subject" name="subject" class="form-select" required>
+                                <option value="">请选择留言主题</option>
+                                <option value="blessing">祝福留言</option>
+                                <option value="advice">育儿建议</option>
+                                <option value="experience">经验分享</option>
+                                <option value="question">问题咨询</option>
+                                <option value="cooperation">合作洽谈</option>
+                                <option value="other">其他事务</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message" class="form-label">
+                                <span class="label-icon">💬</span>
+                                <span class="label-text">留言内容</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <textarea id="contact-message" name="message" class="form-textarea" rows="6" placeholder="请输入您想说的话..." required></textarea>
+                            <div class="textarea-counter">
+                                <span id="message-counter">0</span>/500
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="contact-privacy" name="privacy" required>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">我已阅读并同意 <a href="#" class="privacy-link">隐私政策</a></span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="reset" class="form-btn secondary">
+                                <span class="btn-icon">🔄</span>
+                                <span class="btn-text">重置表单</span>
+                            </button>
+                            <button type="submit" class="form-btn primary">
+                                <span class="btn-icon">📤</span>
+                                <span class="btn-text">发送留言</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2 class="section-title">常见问题</h2>
+                <p class="section-subtitle">这里是一些常见问题的解答</p>
+            </div>
+            
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span class="question-text">你们会回复每一条留言吗？</span>
+                        <span class="question-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，我们会认真阅读并回复每一条留言。通常在24小时内回复，周末可能会稍有延迟。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span class="question-text">可以分享照片吗？</span>
+                        <span class="question-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>当然可以！您可以通过邮件发送照片给我们，我们很乐意看到您的分享。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span class="question-text">个人信息会被保护吗？</span>
+                        <span class="question-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们非常重视您的隐私，所有个人信息都会被严格保护，不会泄露给第三方。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span class="question-text">可以匿名留言吗？</span>
+                        <span class="question-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>可以的，您可以使用昵称或匿名方式留言，我们同样会认真对待。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span class="question-text">如何获得最新动态？</span>
+                        <span class="question-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>您可以关注我们的网站更新，或者留下邮箱地址，我们会不定期分享重要时刻。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* 联系我们页面样式 */
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 页面头部 */
+.contact-hero {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffeef8 0%, #f0f8ff 100%);
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* 联系方式 */
+.contact-methods {
+    padding: 80px 20px;
+}
+
+.methods-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.methods-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.method-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.email-card {
+    border-top: 4px solid #3498db;
+}
+
+.wechat-card {
+    border-top: 4px solid #2ecc71;
+}
+
+.phone-card {
+    border-top: 4px solid #e74c3c;
+}
+
+.address-card {
+    border-top: 4px solid #f39c12;
+}
+
+.card-icon {
+    margin-bottom: 20px;
+}
+
+.card-icon .icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+.email-card .card-icon .icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+}
+
+.wechat-card .card-icon .icon {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+}
+
+.phone-card .card-icon .icon {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+}
+
+.address-card .card-icon .icon {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-info:last-of-type {
+    border-bottom: none;
+    margin-bottom: 20px;
+}
+
+.info-label {
+    font-weight: 500;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.qr-code {
+    margin: 20px 0;
+}
+
+.qr-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #666;
+}
+
+.qr-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.qr-placeholder p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.qr-placeholder small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.action-btn.secondary {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #e0e0e0;
+}
+
+.action-btn.secondary:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* 留言表单 */
+.message-form-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+}
+
+.form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.info-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+}
+
+.item-icon {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.item-text {
+    color: #555;
+    line-height: 1.5;
+}
+
+.response-info {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.response-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.response-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.response-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff1493;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.message-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.label-icon {
+    font-size: 1rem;
+}
+
+.label-required {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.label-optional {
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: white;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.textarea-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    background: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.privacy-link {
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.privacy-link:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.form-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.form-btn.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.form-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.form-btn.secondary {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #e0e0e0;
+}
+
+.form-btn.secondary:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* 常见问题 */
+.faq-section {
+    padding: 80px 20px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.question-text {
+    font-weight: 500;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.question-icon {
+    font-size: 1.5rem;
+    color: #ff69b4;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .question-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px 25px;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 0;
+    }
+    
+    .contact-hero {
+        margin: 10px;
+        padding: 40px 20px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-features {
+        gap: 20px;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .methods-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .response-stats {
+        justify-content: center;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+// 页面初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initContactPage();
+    initContactForm();
+    initMessageCounter();
+});
+
+// 初始化联系页面
+function initContactPage() {
+    console.log('联系我们页面初始化完成');
+}
+
+// 初始化联系表单
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitContactForm();
+        });
+        
+        form.addEventListener('reset', function() {
+            resetFormValidation();
+        });
+    }
+}
+
+// 初始化消息计数器
+function initMessageCounter() {
+    const textarea = document.getElementById('contact-message');
+    const counter = document.getElementById('message-counter');
+    
+    if (textarea && counter) {
+        textarea.addEventListener('input', function() {
+            const length = this.value.length;
+            counter.textContent = length;
+            
+            if (length > 450) {
+                counter.style.color = '#e74c3c';
+            } else if (length > 400) {
+                counter.style.color = '#f39c12';
+            } else {
+                counter.style.color = '#999';
+            }
+        });
+    }
+}
+
+// 提交联系表单
+function submitContactForm() {
+    const form = document.getElementById('contact-form');
+    const formData = new FormData(form);
+    
+    // 验证表单
+    if (!validateContactForm(formData)) {
+        return;
+    }
+    
+    const submitBtn = form.querySelector('.form-btn.primary');
+    const originalText = submitBtn.querySelector('.btn-text').textContent;
+    
+    // 显示加载状态
+    submitBtn.querySelector('.btn-text').textContent = '发送中...';
+    submitBtn.disabled = true;
+    
+    // 模拟发送过程
+    setTimeout(() => {
+        showNotification('留言发送成功！我们会尽快回复您。', 'success');
+        form.reset();
+        resetFormValidation();
+        
+        // 恢复按钮状态
+        submitBtn.querySelector('.btn-text').textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // 重置计数器
+        const counter = document.getElementById('message-counter');
+        if (counter) {
+            counter.textContent = '0';
+            counter.style.color = '#999';
+        }
+    }, 2000);
+}
+
+// 验证联系表单
+function validateContactForm(formData) {
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    const privacy = formData.get('privacy');
+    
+    if (!name.trim()) {
+        showNotification('请输入您的姓名', 'error');
+        return false;
+    }
+    
+    if (!email.trim() || !isValidEmail(email)) {
+        showNotification('请输入有效的邮箱地址', 'error');
+        return false;
+    }
+    
+    if (!subject) {
+        showNotification('请选择留言主题', 'error');
+        return false;
+    }
+    
+    if (!message.trim()) {
+        showNotification('请输入留言内容', 'error');
+        return false;
+    }
+    
+    if (message.length > 500) {
+        showNotification('留言内容不能超过500字', 'error');
+        return false;
+    }
+    
+    if (!privacy) {
+        showNotification('请同意隐私政策', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+// 验证邮箱格式
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// 重置表单验证
+function resetFormValidation() {
+    const inputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+    inputs.forEach(input => {
+        input.style.borderColor = '#f0f0f0';
+    });
+}
+
+// 打开邮件客户端
+function openEmailClient() {
+    const email = 'baby.journal@example.com';
+    const subject = '来自网站的留言';
+    const body = '您好，我想与您联系...';
+    
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+}
+
+// 复制邮箱地址
+function copyEmail() {
+    const email = 'baby.journal@example.com';
+    copyToClipboard(email);
+    showNotification('邮箱地址已复制到剪贴板', 'success');
+}
+
+// 拨打电话
+function makeCall() {
+    const phone = '13800000000';
+    window.location.href = `tel:${phone}`;
+}
+
+// 复制电话号码
+function copyPhone() {
+    const phone = '138-0000-0000';
+    copyToClipboard(phone);
+    showNotification('电话号码已复制到剪贴板', 'success');
+}
+
+// 显示二维码
+function showQRCode() {
+    showNotification('二维码功能开发中...', 'info');
+}
+
+// 打开地图
+function openMap() {
+    const address = '北京市朝阳区某某街道某某小区';
+    const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}`;
+    window.open(mapUrl, '_blank');
+}
+
+// 切换FAQ
+function toggleFAQ(element) {
+    const faqItem = element.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // 关闭所有FAQ
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // 如果当前不是激活状态，则激活
+    if (!isActive) {
+        faqItem.classList.add('active');
+    }
+}
+
+// 复制到剪贴板
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text);
+    } else {
+        // 备用方法
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('复制失败:', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+}
+
+// 显示通知消息
+function showNotification(message, type = 'info') {
+    // 移除现有通知
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // 创建通知元素
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // 添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 10001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+        }
+        .notification.info {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        .notification.success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+        .notification.error {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+    `;
+    
+    if (!document.querySelector('style[data-notification]')) {
+        style.setAttribute('data-notification', 'true');
+        document.head.appendChild(style);
+    }
+    
+    // 添加到页面
+    document.body.appendChild(notification);
+    
+    // 显示动画
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // 自动隐藏
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+</script>

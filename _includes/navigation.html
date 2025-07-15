@@ -1,0 +1,98 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo和网站标题 -->
+        <div class="nav-brand">
+            <a href="{{ '/' | relative_url }}" class="brand-link">
+                <span class="brand-icon">👶</span>
+                <span class="brand-text">{{ site.title }}</span>
+            </a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="切换导航菜单">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+        
+        <!-- 导航菜单 -->
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                {% for item in site.navigation %}
+                <li class="nav-item">
+                    <a href="{{ item.url | relative_url }}" 
+                       class="nav-link{% if page.url == item.url %} active{% endif %}">
+                        {{ item.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- 孕期进度指示器（仅在首页显示） -->
+        {% if page.url == '/' %}
+        <div class="pregnancy-indicator">
+            <div class="pregnancy-week-display">
+                <span class="pregnancy-week">孕 0 周</span>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+
+<!-- 移动端导航遮罩 -->
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<script>
+// 移动端导航切换
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    const body = document.body;
+    
+    function toggleNav() {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        body.classList.toggle('nav-open');
+    }
+    
+    function closeNav() {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navOverlay.classList.remove('active');
+        body.classList.remove('nav-open');
+    }
+    
+    // 点击切换按钮
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleNav);
+    }
+    
+    // 点击遮罩关闭
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeNav);
+    }
+    
+    // 点击导航链接关闭菜单
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeNav);
+    });
+    
+    // ESC键关闭菜单
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeNav();
+        }
+    });
+    
+    // 窗口大小改变时关闭移动端菜单
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeNav();
+        }
+    });
+});
+</script>

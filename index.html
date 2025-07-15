@@ -1,0 +1,200 @@
+---
+layout: default
+title: "首页"
+description: "欢迎来到我们的宝贝成长记录网站，记录怀孕期间的每一个美好时刻"
+---
+
+<!-- 英雄区域 -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-emoji">🎉</span>
+                欢迎来到我们的成长记录
+                <span class="hero-emoji">👶</span>
+            </h1>
+            <p class="hero-subtitle">记录即将到来的小宝贝的每一个珍贵时刻</p>
+            
+            <!-- 孕期进度卡片 -->
+            <div class="pregnancy-card">
+                <div class="pregnancy-header">
+                    <h2 class="pregnancy-title">孕期进度</h2>
+                    <div class="pregnancy-week-badge">
+                        <span class="pregnancy-week">孕 0 周</span>
+                    </div>
+                </div>
+                
+                <div class="pregnancy-progress">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-bg">
+                            <div class="pregnancy-progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span class="progress-start">开始</span>
+                            <span class="progress-end">预产期</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pregnancy-stats">
+                        <div class="stat-item">
+                            <span class="stat-value pregnancy-progress-text">加载中...</span>
+                            <span class="stat-label">已怀孕天数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value pregnancy-countdown">计算中...</span>
+                            <span class="stat-label">距离预产期</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pregnancy-dates">
+                    <div class="date-info">
+                        <span class="date-icon">📅</span>
+                        <div class="date-details">
+                            <span class="date-label">怀孕开始</span>
+                            <span class="date-value">{{ site.pregnancy.start_date | date: "%Y年%m月%d日" }}</span>
+                        </div>
+                    </div>
+                    <div class="date-info">
+                        <span class="date-icon">🎯</span>
+                        <div class="date-details">
+                            <span class="date-label">预产期</span>
+                            <span class="date-value">{{ site.pregnancy.due_date | date: "%Y年%m月%d日" }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 英雄图片 -->
+        <div class="hero-image">
+            <div class="hero-illustration">
+                <span class="illustration-emoji">🤱</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 功能导航区域 -->
+<section class="features">
+    <div class="features-container">
+        <h2 class="features-title">探索我们的记录</h2>
+        <p class="features-subtitle">点击下方卡片，查看不同类型的成长记录</p>
+        
+        <div class="features-grid">
+            <!-- 产检日历 -->
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3 class="feature-title">产检日历</h3>
+                <p class="feature-description">记录每次产检的时间、结果和医生建议</p>
+                <a href="{{ '/checkups/' | relative_url }}" class="feature-link">查看产检记录</a>
+            </div>
+            
+            <!-- 时间轴 -->
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3 class="feature-title">成长时间轴</h3>
+                <p class="feature-description">按时间顺序展示重要的成长里程碑</p>
+                <a href="{{ '/timeline/' | relative_url }}" class="feature-link">查看时间轴</a>
+            </div>
+            
+            <!-- 照片相册 -->
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3 class="feature-title">照片相册</h3>
+                <p class="feature-description">珍藏每一个美好瞬间的照片记录</p>
+                <a href="{{ '/photos/' | relative_url }}" class="feature-link">浏览相册</a>
+            </div>
+            
+            <!-- 日记日志 -->
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3 class="feature-title">日记日志</h3>
+                <p class="feature-description">记录心情、感受和日常生活点滴</p>
+                <a href="{{ '/diary/' | relative_url }}" class="feature-link">阅读日记</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 最新动态区域 -->
+<section class="recent-updates">
+    <div class="updates-container">
+        <h2 class="updates-title">最新动态</h2>
+        
+        <div class="updates-grid">
+            <!-- 最新产检 -->
+            <div class="update-card">
+                <div class="update-header">
+                    <span class="update-icon">🏥</span>
+                    <h3 class="update-title">最新产检</h3>
+                </div>
+                <div class="update-content">
+                    {% assign latest_checkup = site.checkups | sort: 'date' | reverse | first %}
+                    {% if latest_checkup %}
+                        <p class="update-date">{{ latest_checkup.date | date: "%Y年%m月%d日" }}</p>
+                        <p class="update-description">{{ latest_checkup.title }}</p>
+                        <a href="{{ latest_checkup.url | relative_url }}" class="update-link">查看详情</a>
+                    {% else %}
+                        <p class="update-placeholder">暂无产检记录</p>
+                        <a href="{{ '/checkups/' | relative_url }}" class="update-link">添加产检记录</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- 最新里程碑 -->
+            <div class="update-card">
+                <div class="update-header">
+                    <span class="update-icon">🎯</span>
+                    <h3 class="update-title">最新里程碑</h3>
+                </div>
+                <div class="update-content">
+                    {% assign latest_milestone = site.milestones | sort: 'date' | reverse | first %}
+                    {% if latest_milestone %}
+                        <p class="update-date">{{ latest_milestone.date | date: "%Y年%m月%d日" }}</p>
+                        <p class="update-description">{{ latest_milestone.title }}</p>
+                        <a href="{{ latest_milestone.url | relative_url }}" class="update-link">查看详情</a>
+                    {% else %}
+                        <p class="update-placeholder">暂无里程碑记录</p>
+                        <a href="{{ '/timeline/' | relative_url }}" class="update-link">添加里程碑</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- 最新照片 -->
+            <div class="update-card">
+                <div class="update-header">
+                    <span class="update-icon">📸</span>
+                    <h3 class="update-title">最新照片</h3>
+                </div>
+                <div class="update-content">
+                    {% assign latest_photo = site.photos | sort: 'date' | reverse | first %}
+                    {% if latest_photo %}
+                        <p class="update-date">{{ latest_photo.date | date: "%Y年%m月%d日" }}</p>
+                        <p class="update-description">{{ latest_photo.title }}</p>
+                        <a href="{{ latest_photo.url | relative_url }}" class="update-link">查看照片</a>
+                    {% else %}
+                        <p class="update-placeholder">暂无照片记录</p>
+                        <a href="{{ '/photos/' | relative_url }}" class="update-link">上传照片</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 温馨提示区域 -->
+<section class="tips">
+    <div class="tips-container">
+        <div class="tips-card">
+            <div class="tips-icon">💡</div>
+            <div class="tips-content">
+                <h3 class="tips-title">温馨提示</h3>
+                <p class="tips-text">
+                    记录每一个珍贵时刻，为宝宝留下最美好的回忆。
+                    定期更新产检信息，关注宝宝的健康成长。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

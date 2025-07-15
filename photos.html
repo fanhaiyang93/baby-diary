@@ -1,0 +1,2113 @@
+---
+layout: page
+title: 照片相册
+description: 记录孕期的美好瞬间，珍藏每一个温馨时刻
+icon: 📸
+permalink: /photos/
+---
+
+<!-- 相册概览 -->
+<section class="photos-overview">
+    <div class="overview-stats">
+        <div class="stat-card">
+            <div class="stat-icon">📷</div>
+            <div class="stat-content">
+                <div class="stat-number" id="total-photos">128</div>
+                <div class="stat-label">珍贵照片</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">📁</div>
+            <div class="stat-content">
+                <div class="stat-number" id="total-albums">8</div>
+                <div class="stat-label">相册分类</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <div class="stat-content">
+                <div class="stat-number" id="favorite-photos">25</div>
+                <div class="stat-label">最爱照片</div>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div class="stat-content">
+                <div class="stat-number" id="photo-days">45</div>
+                <div class="stat-label">拍照天数</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 相册分类导航 -->
+<section class="album-categories">
+    <div class="category-container">
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">
+                <span class="tab-icon">🌟</span>
+                <span class="tab-text">全部照片</span>
+                <span class="tab-count">128</span>
+            </button>
+            
+            <button class="category-tab" data-category="belly">
+                <span class="tab-icon">🤱</span>
+                <span class="tab-text">孕肚写真</span>
+                <span class="tab-count">32</span>
+            </button>
+            
+            <button class="category-tab" data-category="ultrasound">
+                <span class="tab-icon">👶</span>
+                <span class="tab-text">B超照片</span>
+                <span class="tab-count">15</span>
+            </button>
+            
+            <button class="category-tab" data-category="daily">
+                <span class="tab-icon">📱</span>
+                <span class="tab-text">日常记录</span>
+                <span class="tab-count">48</span>
+            </button>
+            
+            <button class="category-tab" data-category="preparation">
+                <span class="tab-icon">🛍️</span>
+                <span class="tab-text">准备用品</span>
+                <span class="tab-count">18</span>
+            </button>
+            
+            <button class="category-tab" data-category="family">
+                <span class="tab-icon">👨‍👩‍👧</span>
+                <span class="tab-text">家庭合影</span>
+                <span class="tab-count">15</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 照片筛选和排序 -->
+<section class="photo-controls">
+    <div class="controls-container">
+        <div class="filter-group">
+            <label class="filter-label">时间筛选：</label>
+            <select class="filter-select" id="time-filter">
+                <option value="all">全部时间</option>
+                <option value="recent">最近一周</option>
+                <option value="month">最近一月</option>
+                <option value="trimester1">孕早期</option>
+                <option value="trimester2">孕中期</option>
+                <option value="trimester3">孕晚期</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label class="filter-label">排序方式：</label>
+            <select class="filter-select" id="sort-filter">
+                <option value="newest">最新优先</option>
+                <option value="oldest">最早优先</option>
+                <option value="favorites">最爱优先</option>
+                <option value="week">按孕周排序</option>
+            </select>
+        </div>
+        
+        <div class="view-controls">
+            <button class="view-btn active" data-view="grid" title="网格视图">
+                <span class="view-icon">⊞</span>
+            </button>
+            <button class="view-btn" data-view="list" title="列表视图">
+                <span class="view-icon">☰</span>
+            </button>
+            <button class="view-btn" data-view="timeline" title="时间轴视图">
+                <span class="view-icon">📅</span>
+            </button>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="photo-search" placeholder="搜索照片..." class="search-input">
+            <button class="search-btn" onclick="searchPhotos()">
+                <span class="search-icon">🔍</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 照片网格 -->
+<section class="photos-grid" id="photos-container">
+    <div class="grid-container">
+        
+        <!-- 孕肚写真照片 -->
+        <div class="photo-item belly favorite" data-week="12" data-date="2023-10-15" data-category="belly">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/belly-12w.jpg' | relative_url }}" alt="12周孕肚照" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn active" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">12周</div>
+                <div class="photo-badge favorite-badge">❤️</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">第一次孕肚照</div>
+                <div class="photo-date">2023年10月15日</div>
+                <div class="photo-description">虽然肚子还不太明显，但这是我们第一次正式拍孕肚照，很有纪念意义！</div>
+                <div class="photo-tags">
+                    <span class="tag">孕肚写真</span>
+                    <span class="tag">第一次</span>
+                    <span class="tag">纪念</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- B超照片 -->
+        <div class="photo-item ultrasound" data-week="8" data-date="2023-09-09" data-category="ultrasound">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/ultrasound-8w.jpg' | relative_url }}" alt="8周B超照" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">8周</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">第一次B超</div>
+                <div class="photo-date">2023年9月9日</div>
+                <div class="photo-description">第一次看到宝宝的模样，虽然还很小，但已经能看到胎心了！</div>
+                <div class="photo-tags">
+                    <span class="tag">B超</span>
+                    <span class="tag">胎心</span>
+                    <span class="tag">第一次</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 日常记录 -->
+        <div class="photo-item daily" data-week="16" data-date="2023-11-12" data-category="daily">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/daily-food.jpg' | relative_url }}" alt="孕期营养餐" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">16周</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">今日营养餐</div>
+                <div class="photo-date">2023年11月12日</div>
+                <div class="photo-description">老公特意为我准备的营养餐，有鱼有菜有汤，营养均衡又美味！</div>
+                <div class="photo-tags">
+                    <span class="tag">营养餐</span>
+                    <span class="tag">日常</span>
+                    <span class="tag">爱心</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 四维彩超 -->
+        <div class="photo-item ultrasound favorite" data-week="20" data-date="2023-12-09" data-category="ultrasound">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/4d-ultrasound.jpg' | relative_url }}" alt="四维彩超" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn active" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">20周</div>
+                <div class="photo-badge favorite-badge">❤️</div>
+                <div class="photo-badge special-badge">👧</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">四维彩超 - 小公主</div>
+                <div class="photo-date">2023年12月9日</div>
+                <div class="photo-description">四维彩超确认是个小公主！看到她的小脸蛋，激动得眼泪都出来了。</div>
+                <div class="photo-tags">
+                    <span class="tag">四维彩超</span>
+                    <span class="tag">性别确认</span>
+                    <span class="tag">小公主</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 孕期写真 -->
+        <div class="photo-item belly favorite" data-week="26" data-date="2024-01-20" data-category="belly">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/maternity-shoot.jpg' | relative_url }}" alt="孕期写真" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn active" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">26周</div>
+                <div class="photo-badge favorite-badge">❤️</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">专业孕期写真</div>
+                <div class="photo-date">2024年1月20日</div>
+                <div class="photo-description">在摄影工作室拍的专业孕期写真，记录下这个特殊而美好的时刻。</div>
+                <div class="photo-tags">
+                    <span class="tag">孕期写真</span>
+                    <span class="tag">专业拍摄</span>
+                    <span class="tag">纪念</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 宝宝用品 -->
+        <div class="photo-item preparation" data-week="30" data-date="2024-02-10" data-category="preparation">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/baby-clothes.jpg' | relative_url }}" alt="宝宝衣服" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">30周</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">小公主的衣服</div>
+                <div class="photo-date">2024年2月10日</div>
+                <div class="photo-description">给小公主买的第一批衣服，每一件都是精心挑选的，太可爱了！</div>
+                <div class="photo-tags">
+                    <span class="tag">宝宝衣服</span>
+                    <span class="tag">购物</span>
+                    <span class="tag">准备</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 家庭合影 -->
+        <div class="photo-item family favorite" data-week="24" data-date="2024-01-01" data-category="family">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/family-new-year.jpg' | relative_url }}" alt="新年家庭合影" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn active" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">24周</div>
+                <div class="photo-badge favorite-badge">❤️</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">新年家庭合影</div>
+                <div class="photo-date">2024年1月1日</div>
+                <div class="photo-description">2024年的第一张家庭合影，肚子里的小公主也一起迎接新年！</div>
+                <div class="photo-tags">
+                    <span class="tag">家庭合影</span>
+                    <span class="tag">新年</span>
+                    <span class="tag">三口之家</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 更多照片项目... -->
+        <div class="photo-item daily" data-week="18" data-date="2023-11-25" data-category="daily">
+            <div class="photo-wrapper">
+                <img src="{{ '/assets/images/photos/first-kick.jpg' | relative_url }}" alt="第一次胎动" class="photo-image" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-actions">
+                        <button class="action-btn favorite-btn" onclick="toggleFavorite(this)" title="收藏">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share-btn" onclick="sharePhoto(this)" title="分享">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadPhoto(this)" title="下载">
+                            <span class="action-icon">⬇️</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="photo-badge week-badge">18周</div>
+                <div class="photo-badge special-badge">💓</div>
+            </div>
+            <div class="photo-info">
+                <div class="photo-title">记录第一次胎动</div>
+                <div class="photo-date">2023年11月25日</div>
+                <div class="photo-description">今天第一次感受到胎动，赶紧拍照记录下这个神奇的时刻！</div>
+                <div class="photo-tags">
+                    <span class="tag">胎动</span>
+                    <span class="tag">第一次</span>
+                    <span class="tag">神奇</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- 加载更多按钮 -->
+    <div class="load-more-container">
+        <button class="load-more-btn" onclick="loadMorePhotos()">
+            <span class="load-icon">⬇️</span>
+            <span class="load-text">加载更多照片</span>
+        </button>
+    </div>
+</section>
+
+<!-- 照片上传区域 -->
+<section class="photo-upload" id="upload-section">
+    <div class="upload-container">
+        <div class="upload-header">
+            <h3 class="upload-title">添加新照片</h3>
+            <button class="upload-close" onclick="closeUpload()">
+                <span class="close-icon">×</span>
+            </button>
+        </div>
+        
+        <div class="upload-area" id="upload-area">
+            <div class="upload-content">
+                <div class="upload-icon">📸</div>
+                <div class="upload-text">拖拽照片到这里或点击选择</div>
+                <div class="upload-hint">支持 JPG、PNG、GIF 格式，最大 10MB</div>
+                <input type="file" id="photo-input" accept="image/*" multiple style="display: none;">
+                <button class="upload-btn" onclick="selectPhotos()">选择照片</button>
+            </div>
+        </div>
+        
+        <div class="upload-form" id="upload-form" style="display: none;">
+            <div class="form-group">
+                <label class="form-label">照片标题：</label>
+                <input type="text" id="photo-title" class="form-input" placeholder="为这张照片起个标题...">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">照片描述：</label>
+                <textarea id="photo-description" class="form-textarea" placeholder="描述一下这张照片的故事..."></textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">拍摄日期：</label>
+                    <input type="date" id="photo-date" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">孕周：</label>
+                    <input type="number" id="photo-week" class="form-input" min="1" max="42" placeholder="周">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">照片分类：</label>
+                <select id="photo-category" class="form-select">
+                    <option value="daily">日常记录</option>
+                    <option value="belly">孕肚写真</option>
+                    <option value="ultrasound">B超照片</option>
+                    <option value="preparation">准备用品</option>
+                    <option value="family">家庭合影</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">标签：</label>
+                <input type="text" id="photo-tags" class="form-input" placeholder="用逗号分隔多个标签...">
+            </div>
+            
+            <div class="form-actions">
+                <button class="form-btn cancel" onclick="cancelUpload()">取消</button>
+                <button class="form-btn submit" onclick="submitPhoto()">上传照片</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 浮动操作按钮 -->
+<div class="floating-actions">
+    <div class="fab-group">
+        <button class="fab secondary" onclick="showFavorites()" title="查看收藏">
+            <span class="fab-icon">❤️</span>
+        </button>
+        <button class="fab secondary" onclick="createAlbum()" title="创建相册">
+            <span class="fab-icon">📁</span>
+        </button>
+        <button class="fab primary" onclick="showUpload()" title="上传照片">
+            <span class="fab-icon">📸</span>
+        </button>
+    </div>
+</div>
+
+<style>
+/* 照片相册页面样式 */
+.photos-overview {
+    margin-bottom: 40px;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.15);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.album-categories {
+    margin-bottom: 30px;
+}
+
+.category-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.category-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.category-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 25px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.category-tab:hover,
+.category-tab.active {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(255, 20, 147, 0.1));
+    border-bottom-color: #ff69b4;
+}
+
+.tab-icon {
+    font-size: 1.2rem;
+}
+
+.tab-text {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.tab-count {
+    background: #f8f9fa;
+    color: #666;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.category-tab.active .tab-count {
+    background: rgba(255, 105, 180, 0.2);
+    color: #ff1493;
+}
+
+.photo-controls {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-label {
+    font-weight: 500;
+    color: #2d3748;
+    white-space: nowrap;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #2d3748;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.view-controls {
+    display: flex;
+    gap: 5px;
+    background: #f8f9fa;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.view-btn {
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.view-btn:hover,
+.view-btn.active {
+    background: white;
+    color: #ff1493;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-icon {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 25px;
+    padding: 5px;
+    margin-left: auto;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 15px;
+    outline: none;
+    color: #2d3748;
+    width: 200px;
+    font-size: 0.9rem;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+}
+
+.search-icon {
+    font-size: 0.9rem;
+}
+
+.photos-grid {
+    margin-bottom: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.photo-item {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+}
+
+.photo-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-item:hover .photo-image {
+    transform: scale(1.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.action-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.action-btn.active {
+    background: #ff1493;
+    color: white;
+}
+
+.action-icon {
+    font-size: 1.1rem;
+}
+
+.photo-badge {
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.week-badge {
+    top: 15px;
+    left: 15px;
+    background: rgba(59, 130, 246, 0.8);
+}
+
+.favorite-badge {
+    top: 15px;
+    right: 15px;
+    background: rgba(239, 68, 68, 0.8);
+    font-size: 1rem;
+}
+
+.special-badge {
+    bottom: 15px;
+    right: 15px;
+    background: rgba(251, 191, 36, 0.8);
+    font-size: 1rem;
+}
+
+.photo-info {
+    padding: 20px;
+}
+
+.photo-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.photo-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.photo-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.photo-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 105, 180, 0.1);
+    color: #ff1493;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+.load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+}
+
+.load-icon {
+    font-size: 1.1rem;
+}
+
+.photo-upload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.upload-container {
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.upload-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+}
+
+.upload-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.upload-close:hover {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.upload-area {
+    padding: 40px 30px;
+    text-align: center;
+    border: 2px dashed #ddd;
+    margin: 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+    border-color: #ff69b4;
+    background: rgba(255, 105, 180, 0.05);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #999;
+}
+
+.upload-text {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+.upload-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3748;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.form-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.form-btn.cancel {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.form-btn.cancel:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.form-btn.submit {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+}
+
+.form-btn.submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.fab-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.fab.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    width: 64px;
+    height: 64px;
+}
+
+.fab.secondary {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.fab-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fab.secondary .fab-icon {
+    font-size: 1.3rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .filter-group {
+        justify-content: space-between;
+    }
+    
+    .search-box {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .category-tabs {
+        justify-content: flex-start;
+    }
+    
+    .category-tab {
+        min-width: 120px;
+        padding: 15px 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-controls {
+        padding: 15px;
+    }
+    
+    .category-tab {
+        min-width: 100px;
+        padding: 12px 15px;
+    }
+    
+    .tab-text {
+        font-size: 0.9rem;
+    }
+    
+    .photo-info {
+        padding: 15px;
+    }
+    
+    .upload-container {
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .upload-area {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    
+    .upload-form {
+        padding: 20px;
+    }
+    
+    .floating-actions {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .fab {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .fab.primary {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .fab-icon {
+        font-size: 1.3rem;
+    }
+    
+    .fab.secondary .fab-icon {
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+<script>
+// 照片相册页面JavaScript功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化页面
+    initPhotosPage();
+    
+    // 绑定分类标签事件
+    bindCategoryTabs();
+    
+    // 绑定控制器事件
+    bindPhotoControls();
+    
+    // 绑定照片事件
+    bindPhotoEvents();
+    
+    // 初始化拖拽上传
+    initDragUpload();
+    
+    // 更新统计数据
+    updatePhotoStats();
+});
+
+// 初始化照片页面
+function initPhotosPage() {
+    // 设置照片项目的入场动画
+    observePhotoItems();
+    
+    // 初始化懒加载
+    initLazyLoading();
+}
+
+// 绑定分类标签
+function bindCategoryTabs() {
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const photoItems = document.querySelectorAll('.photo-item');
+    
+    categoryTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // 更新标签状态
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.dataset.category;
+            
+            // 过滤照片
+            photoItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// 绑定照片控制器
+function bindPhotoControls() {
+    const timeFilter = document.getElementById('time-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const searchInput = document.getElementById('photo-search');
+    
+    // 时间筛选
+    if (timeFilter) {
+        timeFilter.addEventListener('change', function() {
+            applyTimeFilter(this.value);
+        });
+    }
+    
+    // 排序
+    if (sortFilter) {
+        sortFilter.addEventListener('change', function() {
+            applySorting(this.value);
+        });
+    }
+    
+    // 视图切换
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const view = this.dataset.view;
+            switchView(view);
+        });
+    });
+    
+    // 搜索
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            searchPhotos(this.value);
+        });
+    }
+}
+
+// 应用时间筛选
+function applyTimeFilter(filter) {
+    const photoItems = document.querySelectorAll('.photo-item');
+    const today = new Date();
+    
+    photoItems.forEach(item => {
+        const photoDate = new Date(item.dataset.date);
+        const week = parseInt(item.dataset.week);
+        let show = true;
+        
+        switch(filter) {
+            case 'recent':
+                const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                show = photoDate >= weekAgo;
+                break;
+            case 'month':
+                const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+                show = photoDate >= monthAgo;
+                break;
+            case 'trimester1':
+                show = week <= 12;
+                break;
+            case 'trimester2':
+                show = week > 12 && week <= 28;
+                break;
+            case 'trimester3':
+                show = week > 28;
+                break;
+            default:
+                show = true;
+        }
+        
+        item.style.display = show ? 'block' : 'none';
+    });
+}
+
+// 应用排序
+function applySorting(sort) {
+    const container = document.querySelector('.grid-container');
+    const photoItems = Array.from(document.querySelectorAll('.photo-item'));
+    
+    photoItems.sort((a, b) => {
+        switch(sort) {
+            case 'newest':
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case 'oldest':
+                return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case 'favorites':
+                const aFav = a.classList.contains('favorite') ? 1 : 0;
+                const bFav = b.classList.contains('favorite') ? 1 : 0;
+                return bFav - aFav;
+            case 'week':
+                return parseInt(a.dataset.week) - parseInt(b.dataset.week);
+            default:
+                return 0;
+        }
+    });
+    
+    // 重新排列DOM元素
+    photoItems.forEach(item => container.appendChild(item));
+}
+
+// 切换视图
+function switchView(view) {
+    const container = document.querySelector('.grid-container');
+    
+    container.className = 'grid-container';
+    
+    switch(view) {
+        case 'grid':
+            container.classList.add('grid-view');
+            break;
+        case 'list':
+            container.classList.add('list-view');
+            break;
+        case 'timeline':
+            container.classList.add('timeline-view');
+            break;
+    }
+}
+
+// 搜索照片
+function searchPhotos(query) {
+    const photoItems = document.querySelectorAll('.photo-item');
+    const searchTerm = query.toLowerCase();
+    
+    photoItems.forEach(item => {
+        const title = item.querySelector('.photo-title').textContent.toLowerCase();
+        const description = item.querySelector('.photo-description').textContent.toLowerCase();
+        const tags = Array.from(item.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+        
+        const matches = title.includes(searchTerm) || 
+                       description.includes(searchTerm) || 
+                       tags.includes(searchTerm);
+        
+        item.style.display = matches ? 'block' : 'none';
+    });
+}
+
+// 绑定照片事件
+function bindPhotoEvents() {
+    const photoImages = document.querySelectorAll('.photo-image');
+    
+    photoImages.forEach(img => {
+        img.addEventListener('click', function() {
+            showPhotoModal(this);
+        });
+    });
+}
+
+// 显示照片模态框
+function showPhotoModal(img) {
+    const photoItem = img.closest('.photo-item');
+    const title = photoItem.querySelector('.photo-title').textContent;
+    const description = photoItem.querySelector('.photo-description').textContent;
+    const date = photoItem.querySelector('.photo-date').textContent;
+    const week = photoItem.dataset.week;
+    
+    const modal = document.createElement('div');
+    modal.className = 'photo-modal';
+    modal.innerHTML = `
+        <div class="modal-backdrop" onclick="closePhotoModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-info">
+                    <h3 class="modal-title">${title}</h3>
+                    <div class="modal-meta">
+                        <span class="modal-date">${date}</span>
+                        <span class="modal-week">孕${week}周</span>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closePhotoModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <img src="${img.src}" alt="${img.alt}" class="modal-image">
+                <div class="modal-description">${description}</div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="downloadPhoto(this)">
+                    <span class="btn-icon">⬇️</span>
+                    <span class="btn-text">下载</span>
+                </button>
+                <button class="modal-btn" onclick="sharePhoto(this)">
+                    <span class="btn-icon">📤</span>
+                    <span class="btn-text">分享</span>
+                </button>
+                <button class="modal-btn favorite" onclick="toggleFavorite(this)">
+                    <span class="btn-icon">❤️</span>
+                    <span class="btn-text">收藏</span>
+                </button>
+            </div>
+        </div>
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .photo-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+        .modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0;
+        }
+        .modal-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .modal-date, .modal-week {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            background: #f8f9fa;
+            color: #333;
+        }
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .modal-description {
+            padding: 20px 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            padding: 20px 25px;
+            border-top: 1px solid #f0f0f0;
+            justify-content: center;
+        }
+        .modal-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+        .modal-btn:hover {
+            background: #f8f9fa;
+            border-color: #ff69b4;
+            color: #ff1493;
+        }
+        .modal-btn.favorite {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border-color: transparent;
+        }
+        .btn-icon {
+            font-size: 1rem;
+        }
+        .btn-text {
+            font-weight: 500;
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(modal);
+    
+    // 添加动画
+    setTimeout(() => {
+        modal.style.opacity = '1';
+    }, 10);
+}
+
+// 关闭照片模态框
+function closePhotoModal() {
+    const modal = document.querySelector('.photo-modal');
+    if (modal) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
+    }
+}
+
+// 切换收藏状态
+function toggleFavorite(btn) {
+    const photoItem = btn.closest('.photo-item');
+    const icon = btn.querySelector('.action-icon');
+    
+    if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        photoItem.classList.remove('favorite');
+        icon.textContent = '🤍';
+        showNotification('已取消收藏', 'info');
+    } else {
+        btn.classList.add('active');
+        photoItem.classList.add('favorite');
+        icon.textContent = '❤️';
+        showNotification('已添加到收藏', 'success');
+    }
+    
+    updatePhotoStats();
+}
+
+// 分享照片
+function sharePhoto(btn) {
+    const photoItem = btn.closest('.photo-item');
+    const title = photoItem.querySelector('.photo-title').textContent;
+    const img = photoItem.querySelector('.photo-image');
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: '分享我的孕期照片',
+            url: img.src
+        }).then(() => {
+            showNotification('分享成功', 'success');
+        }).catch(() => {
+            copyToClipboard(img.src);
+        });
+    } else {
+        copyToClipboard(img.src);
+    }
+}
+
+// 下载照片
+function downloadPhoto(btn) {
+    const photoItem = btn.closest('.photo-item');
+    const img = photoItem.querySelector('.photo-image');
+    const title = photoItem.querySelector('.photo-title').textContent;
+    
+    const link = document.createElement('a');
+    link.href = img.src;
+    link.download = `${title}.jpg`;
+    link.click();
+    
+    showNotification('照片下载中...', 'info');
+}
+
+// 显示收藏照片
+function showFavorites() {
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const photoItems = document.querySelectorAll('.photo-item');
+    
+    // 重置分类标签
+    categoryTabs.forEach(tab => tab.classList.remove('active'));
+    
+    // 只显示收藏的照片
+    photoItems.forEach(item => {
+        if (item.classList.contains('favorite')) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    showNotification('正在显示收藏照片', 'info');
+}
+
+// 创建相册
+function createAlbum() {
+    const albumName = prompt('请输入相册名称：');
+    if (albumName) {
+        showNotification(`相册 "${albumName}" 创建成功`, 'success');
+    }
+}
+
+// 显示上传界面
+function showUpload() {
+    const uploadSection = document.getElementById('upload-section');
+    uploadSection.style.display = 'flex';
+    
+    setTimeout(() => {
+        uploadSection.style.opacity = '1';
+    }, 10);
+}
+
+// 关闭上传界面
+function closeUpload() {
+    const uploadSection = document.getElementById('upload-section');
+    uploadSection.style.opacity = '0';
+    
+    setTimeout(() => {
+        uploadSection.style.display = 'none';
+        resetUploadForm();
+    }, 300);
+}
+
+// 选择照片
+function selectPhotos() {
+    const input = document.getElementById('photo-input');
+    input.click();
+}
+
+// 初始化拖拽上传
+function initDragUpload() {
+    const uploadArea = document.getElementById('upload-area');
+    const photoInput = document.getElementById('photo-input');
+    
+    if (!uploadArea || !photoInput) return;
+    
+    // 拖拽事件
+    uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        
+        const files = e.dataTransfer.files;
+        handleFileSelection(files);
+    });
+    
+    // 点击选择
+    uploadArea.addEventListener('click', selectPhotos);
+    
+    // 文件选择
+    photoInput.addEventListener('change', function() {
+        handleFileSelection(this.files);
+    });
+}
+
+// 处理文件选择
+function handleFileSelection(files) {
+    if (files.length === 0) return;
+    
+    const uploadArea = document.getElementById('upload-area');
+    const uploadForm = document.getElementById('upload-form');
+    
+    // 验证文件
+    const validFiles = Array.from(files).filter(file => {
+        const isImage = file.type.startsWith('image/');
+        const isValidSize = file.size <= 10 * 1024 * 1024; // 10MB
+        
+        if (!isImage) {
+            showNotification('请选择图片文件', 'error');
+            return false;
+        }
+        
+        if (!isValidSize) {
+            showNotification('文件大小不能超过10MB', 'error');
+            return false;
+        }
+        
+        return true;
+    });
+    
+    if (validFiles.length > 0) {
+        uploadArea.style.display = 'none';
+        uploadForm.style.display = 'block';
+        
+        // 预填充当前日期和孕周
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('photo-date').value = today;
+        
+        const currentWeek = calculateCurrentWeek();
+        document.getElementById('photo-week').value = currentWeek;
+        
+        showNotification(`已选择 ${validFiles.length} 张照片`, 'success');
+    }
+}
+
+// 取消上传
+function cancelUpload() {
+    closeUpload();
+}
+
+// 提交照片
+function submitPhoto() {
+    const title = document.getElementById('photo-title').value;
+    const description = document.getElementById('photo-description').value;
+    const date = document.getElementById('photo-date').value;
+    const week = document.getElementById('photo-week').value;
+    const category = document.getElementById('photo-category').value;
+    const tags = document.getElementById('photo-tags').value;
+    
+    if (!title.trim()) {
+        showNotification('请输入照片标题', 'error');
+        return;
+    }
+    
+    if (!date) {
+        showNotification('请选择拍摄日期', 'error');
+        return;
+    }
+    
+    // 模拟上传过程
+    const submitBtn = document.querySelector('.form-btn.submit');
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.textContent = '上传中...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+        showNotification('照片上传成功！', 'success');
+        closeUpload();
+        
+        // 重置按钮
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // 更新统计
+        updatePhotoStats();
+    }, 2000);
+}
+
+// 重置上传表单
+function resetUploadForm() {
+    const uploadArea = document.getElementById('upload-area');
+    const uploadForm = document.getElementById('upload-form');
+    const photoInput = document.getElementById('photo-input');
+    
+    uploadArea.style.display = 'block';
+    uploadForm.style.display = 'none';
+    
+    // 清空表单
+    document.getElementById('photo-title').value = '';
+    document.getElementById('photo-description').value = '';
+    document.getElementById('photo-date').value = '';
+    document.getElementById('photo-week').value = '';
+    document.getElementById('photo-category').value = 'daily';
+    document.getElementById('photo-tags').value = '';
+    
+    photoInput.value = '';
+}
+
+// 加载更多照片
+function loadMorePhotos() {
+    const loadBtn = document.querySelector('.load-more-btn');
+    const originalText = loadBtn.querySelector('.load-text').textContent;
+    
+    loadBtn.querySelector('.load-text').textContent = '加载中...';
+    loadBtn.disabled = true;
+    
+    setTimeout(() => {
+        showNotification('已加载更多照片', 'success');
+        
+        loadBtn.querySelector('.load-text').textContent = originalText;
+        loadBtn.disabled = false;
+    }, 1500);
+}
+
+// 更新照片统计
+function updatePhotoStats() {
+    const totalPhotos = document.querySelectorAll('.photo-item').length;
+    const favoritePhotos = document.querySelectorAll('.photo-item.favorite').length;
+    const categories = new Set();
+    const dates = new Set();
+    
+    document.querySelectorAll('.photo-item').forEach(item => {
+        categories.add(item.dataset.category);
+        dates.add(item.dataset.date.split('-').slice(0, 2).join('-'));
+    });
+    
+    // 更新统计数字
+    const totalElement = document.getElementById('total-photos');
+    const albumsElement = document.getElementById('total-albums');
+    const favoriteElement = document.getElementById('favorite-photos');
+    const daysElement = document.getElementById('photo-days');
+    
+    if (totalElement) animateNumber(totalElement, totalPhotos);
+    if (albumsElement) animateNumber(albumsElement, categories.size);
+    if (favoriteElement) animateNumber(favoriteElement, favoritePhotos);
+    if (daysElement) animateNumber(daysElement, dates.size);
+}
+
+// 数字动画
+function animateNumber(element, target) {
+    const start = parseInt(element.textContent) || 0;
+    const duration = 1000;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const current = Math.round(start + (target - start) * progress);
+        element.textContent = current;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+// 观察照片项目
+function observePhotoItems() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    document.querySelectorAll('.photo-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'all 0.6s ease';
+        observer.observe(item);
+    });
+}
+
+// 初始化懒加载
+function initLazyLoading() {
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src || img.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// 计算当前孕周
+function calculateCurrentWeek() {
+    const pregnancyStart = new Date('2023-08-01'); // 从配置中获取
+    const today = new Date();
+    const diffTime = today - pregnancyStart;
+    const diffWeeks = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 7));
+    return Math.max(1, Math.min(42, diffWeeks));
+}
+
+// 复制到剪贴板
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('链接已复制到剪贴板', 'success');
+    }).catch(() => {
+        showNotification('复制失败，请手动复制', 'error');
+    });
+}
+
+// 显示通知
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 10001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .notification.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        .notification.info {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+    `;
+    
+    if (!document.querySelector('style[data-notification]')) {
+        style.setAttribute('data-notification', 'true');
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+</script>

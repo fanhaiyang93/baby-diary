@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- SEO标签 -->
+    <meta name="author" content="{{ site.author.name }}">
+    <meta name="keywords" content="宝宝成长日记,孕期记录,育儿日志,怀孕日记">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 图标 -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    
+    <!-- 移动端优化 -->
+    <meta name="theme-color" content="#ff69b4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+    <!-- 导航栏 -->
+    {% include navigation.html %}
+    
+    <!-- 主要内容 -->
+    <main class="main-content">
+        {{ content }}
+    </main>
+    
+    <!-- 页脚 -->
+    {% include footer.html %}
+    
+    <!-- JavaScript文件 -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    
+    <!-- 孕期进度计算脚本 -->
+    <script>
+        /**
+         * 计算孕期进度
+         * @param {string} startDate - 怀孕开始日期
+         * @param {string} dueDate - 预产期
+         * @returns {object} 包含进度信息的对象
+         */
+        function calculatePregnancyProgress(startDate, dueDate) {
+            const start = new Date(startDate);
+            const due = new Date(dueDate);
+            const today = new Date();
+            
+            const totalDays = Math.ceil((due - start) / (1000 * 60 * 60 * 24));
+            const passedDays = Math.ceil((today - start) / (1000 * 60 * 60 * 24));
+            const remainingDays = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
+            
+            const progressPercentage = Math.min(100, Math.max(0, (passedDays / totalDays) * 100));
+            const currentWeek = Math.floor(passedDays / 7);
+            
+            return {
+                totalDays,
+                passedDays,
+                remainingDays,
+                progressPercentage,
+                currentWeek
+            };
+        }
+        
+        // 页面加载完成后初始化进度显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const startDate = '{{ site.pregnancy.start_date }}';
+            const dueDate = '{{ site.pregnancy.due_date }}';
+            
+            if (startDate && dueDate) {
+                const progress = calculatePregnancyProgress(startDate, dueDate);
+                
+                // 更新进度条
+                const progressBar = document.querySelector('.pregnancy-progress-bar');
+                if (progressBar) {
+                    progressBar.style.width = progress.progressPercentage + '%';
+                }
+                
+                // 更新进度文本
+                const progressText = document.querySelector('.pregnancy-progress-text');
+                if (progressText) {
+                    progressText.textContent = `已怀孕 ${progress.passedDays} 天 / ${progress.totalDays} 天`;
+                }
+                
+                // 更新倒计时
+                const countdown = document.querySelector('.pregnancy-countdown');
+                if (countdown) {
+                    if (progress.remainingDays > 0) {
+                        countdown.textContent = `距预产期还有 ${progress.remainingDays} 天`;
+                    } else {
+                        countdown.textContent = '宝宝已经出生啦！🎉';
+                    }
+                }
+                
+                // 更新孕周
+                const weekText = document.querySelector('.pregnancy-week');
+                if (weekText) {
+                    weekText.textContent = `孕 ${progress.currentWeek} 周`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

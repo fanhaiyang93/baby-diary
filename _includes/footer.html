@@ -1,0 +1,136 @@
+<footer class="footer">
+    <div class="footer-container">
+        <!-- 主要内容区域 -->
+        <div class="footer-content">
+            <!-- 网站信息 -->
+            <div class="footer-section">
+                <h3 class="footer-title">
+                    <span class="footer-icon">👶</span>
+                    {{ site.title }}
+                </h3>
+                <p class="footer-description">{{ site.description }}</p>
+                
+                <!-- 孕期进度摘要 -->
+                <div class="footer-pregnancy-summary">
+                    <div class="pregnancy-progress-container">
+                        <div class="pregnancy-progress-bar-bg">
+                            <div class="pregnancy-progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <p class="pregnancy-progress-text">加载中...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 快速链接 -->
+            <div class="footer-section">
+                <h4 class="footer-subtitle">快速导航</h4>
+                <ul class="footer-links">
+                    {% for item in site.navigation %}
+                    <li>
+                        <a href="{{ item.url | relative_url }}" class="footer-link">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <!-- 重要日期 -->
+            <div class="footer-section">
+                <h4 class="footer-subtitle">重要日期</h4>
+                <div class="important-dates">
+                    <div class="date-item">
+                        <span class="date-label">怀孕开始：</span>
+                        <span class="date-value">{{ site.pregnancy.start_date | date: "%Y年%m月%d日" }}</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="date-label">预产期：</span>
+                        <span class="date-value">{{ site.pregnancy.due_date | date: "%Y年%m月%d日" }}</span>
+                    </div>
+                    <div class="date-item countdown-item">
+                        <span class="date-label">倒计时：</span>
+                        <span class="date-value pregnancy-countdown">计算中...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 联系信息 -->
+            <div class="footer-section">
+                <h4 class="footer-subtitle">关于我们</h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <span class="contact-icon">👨‍👩‍👧‍👦</span>
+                        <span>{{ site.author.name }}</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:{{ site.author.email }}" class="contact-link">
+                            {{ site.author.email }}
+                        </a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <a href="{{ site.url }}{{ site.baseurl }}" class="contact-link">
+                            访问网站
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 分隔线 -->
+        <hr class="footer-divider">
+        
+        <!-- 版权信息 -->
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. 用爱记录每一个美好时刻 💕</p>
+                <p class="tech-info">
+                    由 <a href="https://jekyllrb.com/" target="_blank" rel="noopener" class="tech-link">Jekyll</a> 
+                    强力驱动 • 托管于 
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener" class="tech-link">GitHub Pages</a>
+                </p>
+            </div>
+            
+            <!-- 回到顶部按钮 -->
+            <button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+                <span class="back-to-top-icon">↑</span>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<script>
+// 回到顶部功能
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    // 显示/隐藏回到顶部按钮
+    function toggleBackToTop() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // 平滑滚动到顶部
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', toggleBackToTop);
+    
+    // 点击回到顶部
+    if (backToTopButton) {
+        backToTopButton.addEventListener('click', scrollToTop);
+    }
+    
+    // 初始检查
+    toggleBackToTop();
+});
+</script>

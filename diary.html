@@ -1,0 +1,1790 @@
+---
+layout: page
+title: 日记日志
+description: 记录孕期的点点滴滴，珍藏美好时光
+---
+
+<div class="diary-page">
+    <!-- 日记概览 -->
+    <section class="diary-overview">
+        <div class="overview-cards">
+            <div class="overview-card">
+                <div class="card-icon">📝</div>
+                <div class="card-content">
+                    <div class="card-number" id="total-entries">28</div>
+                    <div class="card-label">日记篇数</div>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">💭</div>
+                <div class="card-content">
+                    <div class="card-number" id="total-words">15,680</div>
+                    <div class="card-label">总字数</div>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">❤️</div>
+                <div class="card-content">
+                    <div class="card-number" id="favorite-entries">8</div>
+                    <div class="card-label">收藏日记</div>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">📅</div>
+                <div class="card-content">
+                    <div class="card-number" id="writing-days">25</div>
+                    <div class="card-label">记录天数</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 日记筛选 -->
+    <section class="diary-filters">
+        <div class="filter-group">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">全部日记</button>
+                <button class="filter-tab" data-filter="mood">心情记录</button>
+                <button class="filter-tab" data-filter="checkup">产检日记</button>
+                <button class="filter-tab" data-filter="milestone">里程碑</button>
+                <button class="filter-tab" data-filter="daily">日常生活</button>
+                <button class="filter-tab" data-filter="favorite">我的收藏</button>
+            </div>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <input type="text" id="diary-search" placeholder="搜索日记内容...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="diary-sort">
+                        <option value="date-desc">最新优先</option>
+                        <option value="date-asc">最早优先</option>
+                        <option value="words-desc">字数最多</option>
+                        <option value="words-asc">字数最少</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="card">📋</button>
+                    <button class="view-btn" data-view="list">📄</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 日记列表 -->
+    <section class="diary-list">
+        <div class="diary-grid" id="diary-grid">
+            <!-- 日记条目 1 -->
+            <article class="diary-entry" data-category="milestone" data-date="2024-01-15" data-words="320">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第20周</span>
+                        <span class="entry-category milestone">里程碑</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">第一次感受到胎动</h3>
+                    <div class="entry-excerpt">
+                        今天是个特别的日子！下午在办公室工作时，突然感受到了宝宝的第一次胎动。那种感觉就像小鱼在游泳，轻柔而神奇。当时我激动得差点哭出来，立刻给老公发了消息...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#胎动</span>
+                        <span class="tag">#第一次</span>
+                        <span class="tag">#激动</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 320字</span>
+                        <span class="stat">⏱️ 2分钟</span>
+                        <span class="stat">👀 15次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">😊</span>
+                        <span class="mood-text">开心</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 日记条目 2 -->
+            <article class="diary-entry" data-category="checkup" data-date="2024-01-12" data-words="280">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">12</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第19周</span>
+                        <span class="entry-category checkup">产检日记</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">第四次产检记录</h3>
+                    <div class="entry-excerpt">
+                        今天去医院做了第四次产检，一切都很顺利！宝宝的各项指标都正常，体重增长也在合理范围内。医生说宝宝很健康，让我们很安心。这次还做了四维彩超...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#产检</span>
+                        <span class="tag">#四维彩超</span>
+                        <span class="tag">#健康</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 280字</span>
+                        <span class="stat">⏱️ 2分钟</span>
+                        <span class="stat">👀 8次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">😌</span>
+                        <span class="mood-text">安心</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 日记条目 3 -->
+            <article class="diary-entry" data-category="daily" data-date="2024-01-10" data-words="450">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">10</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第19周</span>
+                        <span class="entry-category daily">日常生活</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">孕期瑜伽初体验</h3>
+                    <div class="entry-excerpt">
+                        今天第一次尝试孕期瑜伽课程，感觉真的很棒！教练很专业，动作都是针对孕妇设计的，既能锻炼身体又很安全。课程结束后感觉身心都很放松，腰背疼痛也缓解了不少...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#孕期瑜伽</span>
+                        <span class="tag">#运动</span>
+                        <span class="tag">#放松</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 450字</span>
+                        <span class="stat">⏱️ 3分钟</span>
+                        <span class="stat">👀 12次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">😄</span>
+                        <span class="mood-text">愉快</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 日记条目 4 -->
+            <article class="diary-entry" data-category="mood" data-date="2024-01-08" data-words="380">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">08</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第19周</span>
+                        <span class="entry-category mood">心情记录</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">对未来的憧憬与担忧</h3>
+                    <div class="entry-excerpt">
+                        最近总是在想象宝宝出生后的生活会是什么样子。有时候充满期待，想象着抱着宝宝的温馨画面；有时候又会担心，担心自己能不能做个好妈妈，担心工作和育儿的平衡...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#心情</span>
+                        <span class="tag">#期待</span>
+                        <span class="tag">#担忧</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 380字</span>
+                        <span class="stat">⏱️ 3分钟</span>
+                        <span class="stat">👀 6次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">🤔</span>
+                        <span class="mood-text">复杂</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 日记条目 5 -->
+            <article class="diary-entry" data-category="milestone" data-date="2024-01-05" data-words="520">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">05</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第18周</span>
+                        <span class="entry-category milestone">里程碑</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite active" onclick="toggleFavorite(this)">
+                            <span class="action-icon">❤️</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">宝宝性别揭晓</h3>
+                    <div class="entry-excerpt">
+                        今天终于知道宝宝的性别了！是个小公主！当医生告诉我们这个消息时，我和老公都激动得不行。虽然之前说男孩女孩都好，但知道是女儿后，心里涌起了特别的温柔...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#性别揭晓</span>
+                        <span class="tag">#女儿</span>
+                        <span class="tag">#激动</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 520字</span>
+                        <span class="stat">⏱️ 4分钟</span>
+                        <span class="stat">👀 25次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">🥰</span>
+                        <span class="mood-text">幸福</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 日记条目 6 -->
+            <article class="diary-entry" data-category="daily" data-date="2024-01-03" data-words="290">
+                <div class="entry-header">
+                    <div class="entry-date">
+                        <span class="date-day">03</span>
+                        <span class="date-month">1月</span>
+                    </div>
+                    <div class="entry-meta">
+                        <span class="entry-week">第18周</span>
+                        <span class="entry-category daily">日常生活</span>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="action-btn favorite" onclick="toggleFavorite(this)">
+                            <span class="action-icon">🤍</span>
+                        </button>
+                        <button class="action-btn share" onclick="shareEntry(this)">
+                            <span class="action-icon">📤</span>
+                        </button>
+                        <button class="action-btn more" onclick="showEntryMenu(this)">
+                            <span class="action-icon">⋯</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="entry-content">
+                    <h3 class="entry-title">新年第一次逛婴儿用品店</h3>
+                    <div class="entry-excerpt">
+                        新年第一天，我和老公去逛了婴儿用品店。看到那些小小的衣服、鞋子和玩具，心里满满的都是期待。虽然还早，但忍不住买了几件小衣服，想象着宝宝穿上的样子...
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#购物</span>
+                        <span class="tag">#婴儿用品</span>
+                        <span class="tag">#期待</span>
+                    </div>
+                </div>
+                <div class="entry-footer">
+                    <div class="entry-stats">
+                        <span class="stat">📝 290字</span>
+                        <span class="stat">⏱️ 2分钟</span>
+                        <span class="stat">👀 10次</span>
+                    </div>
+                    <div class="entry-mood">
+                        <span class="mood-emoji">😍</span>
+                        <span class="mood-text">兴奋</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 加载更多 -->
+        <div class="load-more-section">
+            <button class="load-more-btn" onclick="loadMoreEntries()">
+                <span class="load-icon">⬇️</span>
+                <span class="load-text">加载更多日记</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 写日记浮动按钮 -->
+    <div class="write-fab" onclick="showWriteModal()">
+        <span class="fab-icon">✏️</span>
+        <span class="fab-text">写日记</span>
+    </div>
+
+    <!-- 写日记模态框 -->
+    <div class="write-modal" id="write-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">写日记</h3>
+                <button class="modal-close" onclick="closeWriteModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="write-form" id="write-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entry-title">日记标题</label>
+                            <input type="text" id="entry-title" placeholder="给这篇日记起个标题...">
+                        </div>
+                        <div class="form-group">
+                            <label for="entry-category">分类</label>
+                            <select id="entry-category">
+                                <option value="daily">日常生活</option>
+                                <option value="mood">心情记录</option>
+                                <option value="checkup">产检日记</option>
+                                <option value="milestone">里程碑</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entry-date">日期</label>
+                            <input type="date" id="entry-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="entry-week">孕周</label>
+                            <input type="number" id="entry-week" min="1" max="42" placeholder="第几周">
+                        </div>
+                        <div class="form-group">
+                            <label for="entry-mood">心情</label>
+                            <select id="entry-mood">
+                                <option value="happy">😊 开心</option>
+                                <option value="excited">😍 兴奋</option>
+                                <option value="peaceful">😌 平静</option>
+                                <option value="worried">😟 担心</option>
+                                <option value="tired">😴 疲惫</option>
+                                <option value="complex">🤔 复杂</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="entry-content">日记内容</label>
+                        <textarea id="entry-content" rows="10" placeholder="记录今天的心情和感受..."></textarea>
+                        <div class="content-stats">
+                            <span id="word-count">0</span> 字
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="entry-tags">标签</label>
+                        <input type="text" id="entry-tags" placeholder="用空格分隔多个标签，如：胎动 第一次 激动">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="form-btn cancel" onclick="closeWriteModal()">取消</button>
+                        <button type="button" class="form-btn save-draft" onclick="saveDraft()">保存草稿</button>
+                        <button type="button" class="form-btn submit" onclick="submitEntry()">发布日记</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* 日记页面样式 */
+.diary-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 概览卡片 */
+.diary-overview {
+    margin-bottom: 30px;
+}
+
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.overview-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.card-label {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 筛选器 */
+.diary-filters {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    padding: 10px 20px;
+    border: 2px solid #f0f0f0;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #666;
+}
+
+.filter-tab:hover {
+    border-color: #ff69b4;
+    color: #ff1493;
+}
+
+.filter-tab.active {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border-color: transparent;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.sort-dropdown select {
+    padding: 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 5px;
+    background: #f8f9fa;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.view-btn {
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.view-btn.active {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 日记列表 */
+.diary-list {
+    margin-bottom: 30px;
+}
+
+.diary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.diary-entry {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.diary-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px 15px;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.entry-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    min-width: 50px;
+}
+
+.date-day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff1493;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.entry-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.entry-week {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.entry-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.entry-category.milestone {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #8b4513;
+}
+
+.entry-category.checkup {
+    background: linear-gradient(135deg, #87ceeb, #4682b4);
+    color: #2f4f4f;
+}
+
+.entry-category.daily {
+    background: linear-gradient(135deg, #98fb98, #32cd32);
+    color: #006400;
+}
+
+.entry-category.mood {
+    background: linear-gradient(135deg, #dda0dd, #9370db);
+    color: #4b0082;
+}
+
+.entry-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.action-btn:hover {
+    background: #ff69b4;
+    color: white;
+    transform: scale(1.1);
+}
+
+.action-btn.favorite.active {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+}
+
+.entry-content {
+    padding: 0 25px 15px;
+}
+
+.entry-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.entry-excerpt {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.entry-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #f8f9fa;
+    color: #666;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.entry-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px 20px;
+    border-top: 1px solid #f8f9fa;
+}
+
+.entry-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat {
+    font-size: 0.8rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.entry-mood {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mood-emoji {
+    font-size: 1.2rem;
+}
+
+.mood-text {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 加载更多 */
+.load-more-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.load-icon {
+    font-size: 1.1rem;
+}
+
+/* 写日记浮动按钮 */
+.write-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    color: white;
+}
+
+.write-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+}
+
+.fab-icon {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+}
+
+.fab-text {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* 写日记模态框 */
+.write-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.write-modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.content-stats {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.form-btn {
+    padding: 12px 25px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: white;
+    color: #666;
+}
+
+.form-btn:hover {
+    transform: translateY(-2px);
+}
+
+.form-btn.cancel {
+    border-color: #ddd;
+    color: #666;
+}
+
+.form-btn.cancel:hover {
+    border-color: #999;
+    color: #333;
+}
+
+.form-btn.save-draft {
+    border-color: #ffa500;
+    color: #ff8c00;
+}
+
+.form-btn.save-draft:hover {
+    background: #ffa500;
+    color: white;
+}
+
+.form-btn.submit {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-color: transparent;
+    color: white;
+}
+
+.form-btn.submit:hover {
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .diary-page {
+        padding: 15px;
+    }
+    
+    .overview-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .overview-card {
+        padding: 20px;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .card-number {
+        font-size: 1.5rem;
+    }
+    
+    .filter-group {
+        gap: 15px;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        min-width: auto;
+    }
+    
+    .diary-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .entry-header {
+        padding: 15px 20px 10px;
+    }
+    
+    .entry-content {
+        padding: 0 20px 10px;
+    }
+    
+    .entry-footer {
+        padding: 10px 20px 15px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .write-fab {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .fab-icon {
+        font-size: 1.2rem;
+    }
+    
+    .fab-text {
+        font-size: 0.6rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+// 页面初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initDiaryPage();
+    initFilters();
+    initSearch();
+    initWriteForm();
+    observeDiaryEntries();
+    updateDiaryStats();
+});
+
+// 初始化日记页面
+function initDiaryPage() {
+    console.log('日记页面初始化完成');
+}
+
+// 初始化筛选器
+function initFilters() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const sortSelect = document.getElementById('diary-sort');
+    const viewBtns = document.querySelectorAll('.view-btn');
+    
+    // 分类筛选
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            filterEntries(filter);
+        });
+    });
+    
+    // 排序
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            sortEntries(this.value);
+        });
+    }
+    
+    // 视图切换
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const view = this.dataset.view;
+            switchView(view);
+        });
+    });
+}
+
+// 初始化搜索
+function initSearch() {
+    const searchInput = document.getElementById('diary-search');
+    
+    if (searchInput) {
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchEntries(this.value);
+            }, 300);
+        });
+    }
+}
+
+// 初始化写日记表单
+function initWriteForm() {
+    const contentTextarea = document.getElementById('entry-content');
+    const wordCountSpan = document.getElementById('word-count');
+    
+    if (contentTextarea && wordCountSpan) {
+        contentTextarea.addEventListener('input', function() {
+            const wordCount = this.value.length;
+            wordCountSpan.textContent = wordCount;
+        });
+    }
+    
+    // 设置默认日期和孕周
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('entry-date');
+    const weekInput = document.getElementById('entry-week');
+    
+    if (dateInput) dateInput.value = today;
+    if (weekInput) weekInput.value = calculateCurrentWeek();
+}
+
+// 筛选日记条目
+function filterEntries(filter) {
+    const entries = document.querySelectorAll('.diary-entry');
+    
+    entries.forEach(entry => {
+        if (filter === 'all') {
+            entry.style.display = 'block';
+        } else if (filter === 'favorite') {
+            const isFavorite = entry.querySelector('.action-btn.favorite.active');
+            entry.style.display = isFavorite ? 'block' : 'none';
+        } else {
+            const category = entry.dataset.category;
+            entry.style.display = category === filter ? 'block' : 'none';
+        }
+    });
+    
+    showNotification(`正在显示${getFilterName(filter)}`, 'info');
+}
+
+// 获取筛选器名称
+function getFilterName(filter) {
+    const names = {
+        'all': '全部日记',
+        'mood': '心情记录',
+        'checkup': '产检日记',
+        'milestone': '里程碑',
+        'daily': '日常生活',
+        'favorite': '收藏日记'
+    };
+    return names[filter] || '日记';
+}
+
+// 搜索日记条目
+function searchEntries(query) {
+    const entries = document.querySelectorAll('.diary-entry');
+    const searchTerm = query.toLowerCase().trim();
+    
+    if (!searchTerm) {
+        entries.forEach(entry => entry.style.display = 'block');
+        return;
+    }
+    
+    entries.forEach(entry => {
+        const title = entry.querySelector('.entry-title').textContent.toLowerCase();
+        const excerpt = entry.querySelector('.entry-excerpt').textContent.toLowerCase();
+        const tags = Array.from(entry.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+        
+        const isMatch = title.includes(searchTerm) || excerpt.includes(searchTerm) || tags.includes(searchTerm);
+        entry.style.display = isMatch ? 'block' : 'none';
+    });
+}
+
+// 排序日记条目
+function sortEntries(sortType) {
+    const grid = document.getElementById('diary-grid');
+    const entries = Array.from(grid.querySelectorAll('.diary-entry'));
+    
+    entries.sort((a, b) => {
+        switch (sortType) {
+            case 'date-desc':
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case 'date-asc':
+                return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case 'words-desc':
+                return parseInt(b.dataset.words) - parseInt(a.dataset.words);
+            case 'words-asc':
+                return parseInt(a.dataset.words) - parseInt(b.dataset.words);
+            default:
+                return 0;
+        }
+    });
+    
+    // 重新排列DOM元素
+    entries.forEach(entry => grid.appendChild(entry));
+    
+    showNotification('日记已重新排序', 'info');
+}
+
+// 切换视图
+function switchView(view) {
+    const grid = document.getElementById('diary-grid');
+    
+    if (view === 'list') {
+        grid.style.gridTemplateColumns = '1fr';
+        grid.querySelectorAll('.diary-entry').forEach(entry => {
+            entry.style.display = 'flex';
+            entry.style.flexDirection = 'row';
+            entry.style.alignItems = 'center';
+        });
+    } else {
+        grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(400px, 1fr))';
+        grid.querySelectorAll('.diary-entry').forEach(entry => {
+            entry.style.display = 'block';
+            entry.style.flexDirection = '';
+            entry.style.alignItems = '';
+        });
+    }
+}
+
+// 切换收藏状态
+function toggleFavorite(btn) {
+    const entry = btn.closest('.diary-entry');
+    const icon = btn.querySelector('.action-icon');
+    
+    if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        icon.textContent = '🤍';
+        showNotification('已取消收藏', 'info');
+    } else {
+        btn.classList.add('active');
+        icon.textContent = '❤️';
+        showNotification('已添加到收藏', 'success');
+    }
+    
+    updateDiaryStats();
+}
+
+// 分享日记
+function shareEntry(btn) {
+    const entry = btn.closest('.diary-entry');
+    const title = entry.querySelector('.entry-title').textContent;
+    const excerpt = entry.querySelector('.entry-excerpt').textContent;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: excerpt.substring(0, 100) + '...',
+            url: window.location.href
+        }).then(() => {
+            showNotification('分享成功', 'success');
+        }).catch(() => {
+            copyToClipboard(window.location.href);
+        });
+    } else {
+        copyToClipboard(window.location.href);
+    }
+}
+
+// 显示条目菜单
+function showEntryMenu(btn) {
+    const menu = document.createElement('div');
+    menu.className = 'entry-menu';
+    menu.innerHTML = `
+        <div class="menu-item" onclick="editEntry(this)">✏️ 编辑</div>
+        <div class="menu-item" onclick="deleteEntry(this)">🗑️ 删除</div>
+        <div class="menu-item" onclick="duplicateEntry(this)">📋 复制</div>
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .entry-menu {
+            position: absolute;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid #f0f0f0;
+            z-index: 1000;
+            min-width: 120px;
+        }
+        .menu-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .menu-item:hover {
+            background: #f8f9fa;
+        }
+        .menu-item:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+        .menu-item:last-child {
+            border-radius: 0 0 10px 10px;
+        }
+    `;
+    
+    document.head.appendChild(style);
+    
+    // 定位菜单
+    const rect = btn.getBoundingClientRect();
+    menu.style.position = 'fixed';
+    menu.style.top = rect.bottom + 5 + 'px';
+    menu.style.left = rect.left - 80 + 'px';
+    
+    document.body.appendChild(menu);
+    
+    // 点击外部关闭菜单
+    setTimeout(() => {
+        document.addEventListener('click', function closeMenu(e) {
+            if (!menu.contains(e.target)) {
+                menu.remove();
+                document.removeEventListener('click', closeMenu);
+            }
+        });
+    }, 10);
+}
+
+// 编辑日记
+function editEntry(menuItem) {
+    const menu = menuItem.closest('.entry-menu');
+    menu.remove();
+    showNotification('编辑功能开发中...', 'info');
+}
+
+// 删除日记
+function deleteEntry(menuItem) {
+    const menu = menuItem.closest('.entry-menu');
+    menu.remove();
+    
+    if (confirm('确定要删除这篇日记吗？此操作不可撤销。')) {
+        showNotification('日记已删除', 'success');
+        updateDiaryStats();
+    }
+}
+
+// 复制日记
+function duplicateEntry(menuItem) {
+    const menu = menuItem.closest('.entry-menu');
+    menu.remove();
+    showNotification('日记已复制到草稿', 'success');
+}
+
+// 显示写日记模态框
+function showWriteModal() {
+    const modal = document.getElementById('write-modal');
+    modal.style.display = 'flex';
+    
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+    
+    // 聚焦到标题输入框
+    const titleInput = document.getElementById('entry-title');
+    if (titleInput) {
+        setTimeout(() => titleInput.focus(), 300);
+    }
+}
+
+// 关闭写日记模态框
+function closeWriteModal() {
+    const modal = document.getElementById('write-modal');
+    modal.classList.remove('show');
+    
+    setTimeout(() => {
+        modal.style.display = 'none';
+        resetWriteForm();
+    }, 300);
+}
+
+// 重置写日记表单
+function resetWriteForm() {
+    const form = document.getElementById('write-form');
+    if (form) {
+        form.reset();
+        
+        // 重新设置默认值
+        const today = new Date().toISOString().split('T')[0];
+        const dateInput = document.getElementById('entry-date');
+        const weekInput = document.getElementById('entry-week');
+        const wordCountSpan = document.getElementById('word-count');
+        
+        if (dateInput) dateInput.value = today;
+        if (weekInput) weekInput.value = calculateCurrentWeek();
+        if (wordCountSpan) wordCountSpan.textContent = '0';
+    }
+}
+
+// 保存草稿
+function saveDraft() {
+    const title = document.getElementById('entry-title').value;
+    
+    if (!title.trim()) {
+        showNotification('请输入日记标题', 'error');
+        return;
+    }
+    
+    showNotification('草稿已保存', 'success');
+}
+
+// 提交日记
+function submitEntry() {
+    const title = document.getElementById('entry-title').value;
+    const content = document.getElementById('entry-content').value;
+    const date = document.getElementById('entry-date').value;
+    const category = document.getElementById('entry-category').value;
+    
+    if (!title.trim()) {
+        showNotification('请输入日记标题', 'error');
+        return;
+    }
+    
+    if (!content.trim()) {
+        showNotification('请输入日记内容', 'error');
+        return;
+    }
+    
+    if (!date) {
+        showNotification('请选择日期', 'error');
+        return;
+    }
+    
+    // 模拟提交过程
+    const submitBtn = document.querySelector('.form-btn.submit');
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.textContent = '发布中...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+        showNotification('日记发布成功！', 'success');
+        closeWriteModal();
+        
+        // 重置按钮
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // 更新统计
+        updateDiaryStats();
+    }, 2000);
+}
+
+// 加载更多日记
+function loadMoreEntries() {
+    const loadBtn = document.querySelector('.load-more-btn');
+    const originalText = loadBtn.querySelector('.load-text').textContent;
+    
+    loadBtn.querySelector('.load-text').textContent = '加载中...';
+    loadBtn.disabled = true;
+    
+    setTimeout(() => {
+        showNotification('已加载更多日记', 'success');
+        
+        loadBtn.querySelector('.load-text').textContent = originalText;
+        loadBtn.disabled = false;
+    }, 1500);
+}
+
+// 更新日记统计
+function updateDiaryStats() {
+    const entries = document.querySelectorAll('.diary-entry');
+    const favoriteEntries = document.querySelectorAll('.diary-entry .action-btn.favorite.active');
+    
+    // 计算总字数
+    let totalWords = 0;
+    entries.forEach(entry => {
+        totalWords += parseInt(entry.dataset.words) || 0;
+    });
+    
+    // 计算记录天数（去重日期）
+    const uniqueDates = new Set();
+    entries.forEach(entry => {
+        uniqueDates.add(entry.dataset.date);
+    });
+    
+    // 更新统计数字
+    animateNumber('total-entries', entries.length);
+    animateNumber('total-words', totalWords);
+    animateNumber('favorite-entries', favoriteEntries.length);
+    animateNumber('writing-days', uniqueDates.size);
+}
+
+// 数字动画
+function animateNumber(elementId, targetNumber) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    const startNumber = parseInt(element.textContent.replace(/,/g, '')) || 0;
+    const duration = 1000;
+    const startTime = Date.now();
+    
+    function updateNumber() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const currentNumber = Math.floor(startNumber + (targetNumber - startNumber) * progress);
+        element.textContent = currentNumber.toLocaleString();
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        }
+    }
+    
+    updateNumber();
+}
+
+// 观察日记条目（入场动画）
+function observeDiaryEntries() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // 初始化样式并观察
+    document.querySelectorAll('.diary-entry').forEach((entry, index) => {
+        entry.style.opacity = '0';
+        entry.style.transform = 'translateY(30px)';
+        entry.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(entry);
+    });
+}
+
+// 计算当前孕周
+function calculateCurrentWeek() {
+    const pregnancyStart = new Date('2023-08-15'); // 从配置中获取
+    const today = new Date();
+    const diffTime = Math.abs(today - pregnancyStart);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const weeks = Math.floor(diffDays / 7);
+    return Math.min(weeks, 42);
+}
+
+// 复制到剪贴板
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification('链接已复制到剪贴板', 'success');
+        }).catch(() => {
+            fallbackCopyToClipboard(text);
+        });
+    } else {
+        fallbackCopyToClipboard(text);
+    }
+}
+
+// 备用复制方法
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showNotification('链接已复制到剪贴板', 'success');
+    } catch (err) {
+        showNotification('复制失败，请手动复制', 'error');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// 显示通知消息
+function showNotification(message, type = 'info') {
+    // 移除现有通知
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // 创建通知元素
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // 添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 10001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .notification.info {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        .notification.success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+        .notification.error {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .notification.warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+    `;
+    
+    if (!document.querySelector('style[data-notification]')) {
+        style.setAttribute('data-notification', 'true');
+        document.head.appendChild(style);
+    }
+    
+    // 添加到页面
+    document.body.appendChild(notification);
+    
+    // 显示动画
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // 自动隐藏
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// 键盘快捷键
+document.addEventListener('keydown', function(e) {
+    // Ctrl/Cmd + N: 新建日记
+    if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+        e.preventDefault();
+        showWriteModal();
+    }
+    
+    // ESC: 关闭模态框
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('write-modal');
+        if (modal && modal.style.display !== 'none') {
+            closeWriteModal();
+        }
+    }
+});
+
+// 点击日记条目查看详情
+document.addEventListener('click', function(e) {
+    const entry = e.target.closest('.diary-entry');
+    if (entry && !e.target.closest('.entry-actions') && !e.target.closest('.action-btn')) {
+        const title = entry.querySelector('.entry-title').textContent;
+        showNotification(`正在查看《${title}》`, 'info');
+        // 这里可以跳转到详情页面或显示详情模态框
+    }
+});
+</script>

@@ -1,0 +1,572 @@
+---
+layout: default
+---
+
+<!-- 页面头部 -->
+<header class="page-header">
+    <div class="page-header-container">
+        <div class="page-header-content">
+            <h1 class="page-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="page-description">{{ page.description }}</p>
+            {% endif %}
+            
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb" aria-label="面包屑导航">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="{{ '/' | relative_url }}" class="breadcrumb-link">
+                            <span class="breadcrumb-icon">🏠</span>
+                            首页
+                        </a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{ page.title }}
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        
+        <!-- 页面图标 -->
+        {% if page.icon %}
+        <div class="page-icon">
+            <span class="page-icon-emoji">{{ page.icon }}</span>
+        </div>
+        {% endif %}
+    </div>
+</header>
+
+<!-- 页面内容 -->
+<main class="page-content">
+    <div class="page-content-container">
+        <article class="page-article">
+            {{ content }}
+        </article>
+        
+        <!-- 页面侧边栏（如果有） -->
+        {% if page.sidebar %}
+        <aside class="page-sidebar">
+            {% include sidebar.html %}
+        </aside>
+        {% endif %}
+    </div>
+</main>
+
+<!-- 页面底部操作 -->
+{% if page.show_actions != false %}
+<section class="page-actions">
+    <div class="page-actions-container">
+        <div class="action-buttons">
+            <!-- 返回按钮 -->
+            <button onclick="history.back()" class="action-button secondary">
+                <span class="button-icon">←</span>
+                返回上一页
+            </button>
+            
+            <!-- 分享按钮 -->
+            <button onclick="shareCurrentPage()" class="action-button primary">
+                <span class="button-icon">📤</span>
+                分享页面
+            </button>
+            
+            <!-- 打印按钮 -->
+            <button onclick="window.print()" class="action-button secondary">
+                <span class="button-icon">🖨️</span>
+                打印页面
+            </button>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 相关页面推荐 -->
+{% if page.show_related != false %}
+<section class="related-pages">
+    <div class="related-pages-container">
+        <h2 class="related-title">相关页面</h2>
+        <div class="related-grid">
+            <!-- 产检日历 -->
+            {% unless page.url contains '/checkups/' %}
+            <div class="related-card">
+                <div class="related-icon">🏥</div>
+                <h3 class="related-card-title">产检日历</h3>
+                <p class="related-card-description">查看产检记录和时间安排</p>
+                <a href="{{ '/checkups/' | relative_url }}" class="related-link">查看详情</a>
+            </div>
+            {% endunless %}
+            
+            <!-- 时间轴 -->
+            {% unless page.url contains '/timeline/' %}
+            <div class="related-card">
+                <div class="related-icon">📅</div>
+                <h3 class="related-card-title">成长时间轴</h3>
+                <p class="related-card-description">重要里程碑和纪念时刻</p>
+                <a href="{{ '/timeline/' | relative_url }}" class="related-link">查看详情</a>
+            </div>
+            {% endunless %}
+            
+            <!-- 照片相册 -->
+            {% unless page.url contains '/photos/' %}
+            <div class="related-card">
+                <div class="related-icon">📸</div>
+                <h3 class="related-card-title">照片相册</h3>
+                <p class="related-card-description">珍贵的照片和回忆</p>
+                <a href="{{ '/photos/' | relative_url }}" class="related-link">查看详情</a>
+            </div>
+            {% endunless %}
+            
+            <!-- 日记日志 -->
+            {% unless page.url contains '/diary/' %}
+            <div class="related-card">
+                <div class="related-icon">📝</div>
+                <h3 class="related-card-title">日记日志</h3>
+                <p class="related-card-description">记录心情和感受</p>
+                <a href="{{ '/diary/' | relative_url }}" class="related-link">查看详情</a>
+            </div>
+            {% endunless %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<style>
+/* 页面布局样式 */
+.page-header {
+    background: linear-gradient(135deg, #fef7f7 0%, #ffe4e6 100%);
+    padding: 60px 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.05) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite;
+}
+
+.page-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.page-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.breadcrumb {
+    margin-top: 20px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-link:hover {
+    background: rgba(255, 105, 180, 0.1);
+    color: #ff1493;
+}
+
+.breadcrumb-item.active {
+    color: #ff1493;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.breadcrumb-separator {
+    color: #999;
+    margin: 0 5px;
+}
+
+.page-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.page-icon-emoji {
+    font-size: 3rem;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.page-content {
+    padding: 60px 0;
+    background: white;
+}
+
+.page-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.page-content-container.has-sidebar {
+    grid-template-columns: 1fr 300px;
+}
+
+.page-article {
+    line-height: 1.8;
+    color: #333;
+}
+
+.page-article h1,
+.page-article h2,
+.page-article h3,
+.page-article h4,
+.page-article h5,
+.page-article h6 {
+    color: #2d3748;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+.page-article h1 { font-size: 2rem; }
+.page-article h2 { font-size: 1.7rem; }
+.page-article h3 { font-size: 1.4rem; }
+.page-article h4 { font-size: 1.2rem; }
+
+.page-article p {
+    margin-bottom: 1.5em;
+}
+
+.page-article ul,
+.page-article ol {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+.page-article li {
+    margin-bottom: 0.5em;
+}
+
+.page-article blockquote {
+    border-left: 4px solid #ff69b4;
+    padding-left: 20px;
+    margin: 2em 0;
+    font-style: italic;
+    color: #666;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.page-article code {
+    background: #f1f3f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+.page-article pre {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2em 0;
+}
+
+.page-article pre code {
+    background: none;
+    padding: 0;
+}
+
+.page-actions {
+    padding: 40px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.page-actions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.action-button.primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+}
+
+.action-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+}
+
+.action-button.secondary {
+    background: white;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.action-button.secondary:hover {
+    background: #f8f9fa;
+    border-color: #ff69b4;
+    color: #ff1493;
+}
+
+.related-pages {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #fef7f7 0%, #ffe4e6 100%);
+}
+
+.related-pages-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.related-title {
+    font-size: 2rem;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.related-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+}
+
+.related-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.related-card-title {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.related-card-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.related-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.related-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .page-header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .page-icon-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .breadcrumb-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-button {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 40px 0 30px;
+    }
+    
+    .page-content {
+        padding: 40px 0;
+    }
+    
+    .page-content-container,
+    .page-actions-container,
+    .related-pages-container {
+        padding: 0 15px;
+    }
+    
+    .related-pages {
+        padding: 40px 0;
+    }
+}
+</style>
+
+<script>
+// 分享当前页面
+function shareCurrentPage() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            text: '{{ page.description | default: site.description }}',
+            url: window.location.href
+        }).catch(console.error);
+    } else {
+        // 复制链接到剪贴板
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            if (window.BabyGrowthJournal && window.BabyGrowthJournal.showNotification) {
+                window.BabyGrowthJournal.showNotification('链接已复制到剪贴板', 'success');
+            } else {
+                alert('链接已复制到剪贴板');
+            }
+        }).catch(() => {
+            // 降级方案：显示链接
+            prompt('请复制以下链接:', window.location.href);
+        });
+    }
+}
+
+// 页面加载完成后的初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 检查是否有侧边栏
+    const sidebar = document.querySelector('.page-sidebar');
+    const container = document.querySelector('.page-content-container');
+    if (sidebar && container) {
+        container.classList.add('has-sidebar');
+    }
+    
+    // 平滑滚动到锚点
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+</script>
