@@ -6,7 +6,7 @@ url: "https://fanhaiyang93.github.io"
 
 # 作者信息
 author:
-  name: "准爸爸准妈妈"
+  name: "老范&小王"
   email: "your-email@example.com"
 
 # Jekyll构建设置
@@ -83,8 +83,8 @@ lang: zh-CN
 
 # 孕期设置
 pregnancy:
-  start_date: "2024-01-01"  # 请修改为实际怀孕开始日期
-  due_date: "2024-10-01"    # 请修改为实际预产期
+  start_date: "2025-03-31"  # 根据预产期推算的怀孕开始日期（预产期前280天）
+  due_date: "2025-12-07"    # 预产期
   total_days: 280
 
 # 导航菜单
