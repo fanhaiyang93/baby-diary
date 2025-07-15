@@ -1,7 +1,7 @@
 # 宝贝成长记录网站配置文件
 title: "宝贝成长记录"
 description: "记录我们即将到来的小宝贝的成长历程 🎉"
-baseurl: ""
+baseurl: "/baby-diary"
 url: "https://fanhaiyang93.github.io"
 
 # 作者信息
