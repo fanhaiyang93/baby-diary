@@ -1,0 +1,1349 @@
+---
+layout: page
+title: 照片上传
+description: 上传和管理您的珍贵照片
+icon: 📤
+permalink: /photo-upload/
+---
+
+<!-- 照片上传功能说明 -->
+<section class="upload-info">
+    <div class="info-container">
+        <div class="info-header">
+            <h2 class="info-title">📸 照片上传功能</h2>
+            <p class="info-description">由于本网站使用Jekyll静态生成器，我们提供多种照片上传和管理方案</p>
+        </div>
+    </div>
+</section>
+
+<!-- 上传方案选择 -->
+<section class="upload-methods">
+    <div class="methods-container">
+        <div class="method-tabs">
+            <button class="method-tab active" data-method="github">
+                <span class="tab-icon">🐙</span>
+                <span class="tab-text">GitHub上传</span>
+                <span class="tab-badge">推荐</span>
+            </button>
+            
+            <button class="method-tab" data-method="local">
+                <span class="tab-icon">💻</span>
+                <span class="tab-text">本地上传</span>
+                <span class="tab-badge">简单</span>
+            </button>
+            
+            <button class="method-tab" data-method="cloud">
+                <span class="tab-icon">☁️</span>
+                <span class="tab-text">云端集成</span>
+                <span class="tab-badge">高级</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- GitHub上传方法 -->
+<section class="upload-method github-method active" id="github-method">
+    <div class="method-container">
+        <div class="method-header">
+            <h3 class="method-title">🐙 通过GitHub上传照片</h3>
+            <p class="method-description">直接通过GitHub仓库管理照片，自动同步到网站</p>
+        </div>
+        
+        <div class="method-steps">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4 class="step-title">访问GitHub仓库</h4>
+                    <p class="step-description">打开您的baby-diary仓库</p>
+                    <a href="https://github.com/fanhaiyang93/baby-diary" class="step-link" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        前往GitHub仓库
+                    </a>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4 class="step-title">导航到照片目录</h4>
+                    <p class="step-description">进入 assets/images/photos/ 文件夹</p>
+                    <div class="code-block">
+                        <code>assets/images/photos/</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4 class="step-title">上传照片文件</h4>
+                    <p class="step-description">点击"Add file" → "Upload files"，拖拽或选择照片</p>
+                    <div class="upload-tips">
+                        <div class="tip-item">
+                            <span class="tip-icon">📏</span>
+                            <span class="tip-text">建议尺寸：1200x800px以下</span>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">📦</span>
+                            <span class="tip-text">文件大小：每张不超过5MB</span>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">🏷️</span>
+                            <span class="tip-text">命名格式：category-date-description.jpg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4 class="step-title">提交更改</h4>
+                    <p class="step-description">添加提交信息并点击"Commit changes"</p>
+                    <div class="commit-example">
+                        <strong>提交信息示例：</strong><br>
+                        <code>Add new photos: 20周孕肚照和B超照片</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="method-advantages">
+            <h4 class="advantages-title">✅ 优势</h4>
+            <ul class="advantages-list">
+                <li>自动同步到网站</li>
+                <li>版本控制和备份</li>
+                <li>无需额外工具</li>
+                <li>支持批量上传</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- 本地上传方法 -->
+<section class="upload-method local-method" id="local-method">
+    <div class="method-container">
+        <div class="method-header">
+            <h3 class="method-title">💻 本地文件上传</h3>
+            <p class="method-description">在本地环境中直接上传和管理照片</p>
+        </div>
+        
+        <!-- 本地上传界面 -->
+        <div class="local-upload-interface">
+            <div class="upload-area" id="upload-area">
+                <div class="upload-content">
+                    <div class="upload-icon">📤</div>
+                    <h4 class="upload-title">拖拽照片到此处</h4>
+                    <p class="upload-description">或点击选择文件</p>
+                    <input type="file" id="photo-input" multiple accept="image/*" class="file-input">
+                    <button class="upload-btn" onclick="document.getElementById('photo-input').click()">
+                        <span class="btn-icon">📁</span>
+                        选择照片
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 照片预览区域 -->
+            <div class="preview-area" id="preview-area" style="display: none;">
+                <h4 class="preview-title">照片预览</h4>
+                <div class="preview-grid" id="preview-grid"></div>
+                
+                <div id="upload-status"></div>
+                
+                <div class="upload-actions">
+                    <button class="action-btn process-btn" onclick="processPhotos()">
+                        <span class="btn-icon">📤</span>
+                        下载优化照片
+                    </button>
+                    <button class="action-btn clear-btn" onclick="clearPhotos()">
+                        <span class="btn-icon">🗑️</span>
+                        清空
+                    </button>
+                    <button class="action-btn info-btn" onclick="generateGuide()">
+                        <span class="btn-icon">📋</span>
+                        生成使用指南
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="method-steps">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4 class="step-title">选择照片</h4>
+                    <p class="step-description">点击上方按钮或拖拽照片到上传区域</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4 class="step-title">照片处理</h4>
+                    <p class="step-description">系统会自动压缩和优化照片</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4 class="step-title">下载处理后的照片</h4>
+                    <p class="step-description">将优化后的照片保存到本地</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4 class="step-title">手动添加到项目</h4>
+                    <p class="step-description">将照片复制到项目的assets/images/photos/目录</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 云端集成方法 -->
+<section class="upload-method cloud-method" id="cloud-method">
+    <div class="method-container">
+        <div class="method-header">
+            <h3 class="method-title">☁️ 云端存储集成</h3>
+            <p class="method-description">集成第三方云存储服务，实现自动化照片管理</p>
+        </div>
+        
+        <div class="cloud-options">
+            <div class="cloud-option">
+                <div class="option-header">
+                    <div class="option-icon">📷</div>
+                    <h4 class="option-title">Cloudinary集成</h4>
+                </div>
+                <div class="option-content">
+                    <p class="option-description">专业的图片和视频管理云服务</p>
+                    <ul class="option-features">
+                        <li>自动图片优化</li>
+                        <li>CDN加速</li>
+                        <li>智能裁剪</li>
+                        <li>格式转换</li>
+                    </ul>
+                    <div class="option-status">
+                        <span class="status-badge coming-soon">即将推出</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cloud-option">
+                <div class="option-header">
+                    <div class="option-icon">🗂️</div>
+                    <h4 class="option-title">GitHub Actions自动化</h4>
+                </div>
+                <div class="option-content">
+                    <p class="option-description">通过GitHub Actions实现照片自动处理</p>
+                    <ul class="option-features">
+                        <li>自动压缩</li>
+                        <li>格式统一</li>
+                        <li>批量处理</li>
+                        <li>自动部署</li>
+                    </ul>
+                    <div class="option-status">
+                        <span class="status-badge development">开发中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 照片管理指南 -->
+<section class="photo-guide">
+    <div class="guide-container">
+        <div class="guide-header">
+            <h3 class="guide-title">📋 照片管理指南</h3>
+            <p class="guide-description">遵循以下规范，让您的照片更好地展示</p>
+        </div>
+        
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="card-icon">🏷️</div>
+                <h4 class="card-title">文件命名</h4>
+                <div class="card-content">
+                    <p>使用有意义的文件名：</p>
+                    <ul>
+                        <li><code>belly-12w-2025-05-15.jpg</code></li>
+                        <li><code>ultrasound-20w-2025-07-10.jpg</code></li>
+                        <li><code>family-photo-2025-06-01.jpg</code></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="guide-card">
+                <div class="card-icon">📁</div>
+                <h4 class="card-title">目录结构</h4>
+                <div class="card-content">
+                    <p>按类别组织照片：</p>
+                    <ul>
+                        <li><code>belly/</code> - 孕肚写真</li>
+                        <li><code>ultrasound/</code> - B超照片</li>
+                        <li><code>daily/</code> - 日常记录</li>
+                        <li><code>family/</code> - 家庭合影</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="guide-card">
+                <div class="card-icon">⚙️</div>
+                <h4 class="card-title">图片优化</h4>
+                <div class="card-content">
+                    <p>推荐设置：</p>
+                    <ul>
+                        <li>格式：JPEG或WebP</li>
+                        <li>尺寸：1200x800px</li>
+                        <li>质量：80-90%</li>
+                        <li>大小：< 500KB</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="guide-card">
+                <div class="card-icon">📝</div>
+                <h4 class="card-title">添加到页面</h4>
+                <div class="card-content">
+                    <p>在photos.html中添加：</p>
+                    <div class="code-example">
+                        <code>&lt;div class="photo-item"&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="/assets/images/photos/your-photo.jpg"&gt;<br>
+                        &lt;/div&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 常见问题 -->
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="faq-header">
+            <h3 class="faq-title">❓ 常见问题</h3>
+        </div>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="question-text">为什么不能直接在网页上上传照片？</span>
+                    <span class="question-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Jekyll是静态网站生成器，无法处理服务器端文件上传。所有内容都需要通过Git提交到仓库中。这样的设计确保了网站的安全性和稳定性。</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="question-text">照片会自动显示在网站上吗？</span>
+                    <span class="question-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>上传到GitHub后，照片文件会自动同步，但需要在photos.html页面中添加相应的HTML代码才能显示。我们正在开发自动化工具来简化这个过程。</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="question-text">如何批量上传多张照片？</span>
+                    <span class="question-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>在GitHub网页界面可以同时选择多个文件上传。或者使用Git命令行工具，可以更高效地处理大量照片。</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span class="question-text">照片大小有限制吗？</span>
+                    <span class="question-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>GitHub单个文件限制为100MB，但建议每张照片不超过5MB以确保网站加载速度。可以使用本地上传功能自动压缩照片。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* 照片上传页面样式 */
+.upload-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.info-description {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.upload-methods {
+    margin-bottom: 3rem;
+}
+
+.methods-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.method-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.method-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.method-tab:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.method-tab.active {
+    border-color: #667eea;
+    background: #667eea;
+    color: white;
+}
+
+.tab-icon {
+    font-size: 1.5rem;
+}
+
+.tab-text {
+    font-weight: 600;
+}
+
+.tab-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.method-tab.active .tab-badge {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.upload-method {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.upload-method.active {
+    display: block;
+}
+
+.method-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.method-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.method-title {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.method-description {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+.method-steps {
+    margin-bottom: 2rem;
+}
+
+.step-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.step-description {
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-link:hover {
+    background: #667eea;
+    color: white;
+}
+
+.code-block {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    color: #2d3748;
+}
+
+.upload-tips {
+    background: #f0f8ff;
+    border-left: 4px solid #667eea;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tip-item:last-child {
+    margin-bottom: 0;
+}
+
+.commit-example {
+    background: #f7fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #48bb78;
+}
+
+.method-advantages {
+    background: #f0fff4;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #9ae6b4;
+}
+
+.advantages-title {
+    color: #22543d;
+    margin-bottom: 1rem;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #2f855a;
+}
+
+.advantages-list li:before {
+    content: '✓';
+    color: #48bb78;
+    font-weight: bold;
+}
+
+/* 本地上传界面样式 */
+.local-upload-interface {
+    margin-bottom: 2rem;
+}
+
+.upload-area {
+    border: 3px dashed #cbd5e0;
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    background: #f7fafc;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: #edf2f7;
+}
+
+.upload-area.dragover {
+    border-color: #667eea;
+    background: #e6fffa;
+}
+
+.upload-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.upload-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.upload-description {
+    color: #718096;
+    margin-bottom: 1.5rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+}
+
+.preview-area {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.preview-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.preview-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.preview-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.preview-info {
+    padding: 1rem;
+}
+
+.preview-name {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.preview-size {
+    color: #718096;
+    font-size: 0.8rem;
+}
+
+.upload-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.process-btn {
+    background: #48bb78;
+    color: white;
+}
+
+.process-btn:hover {
+    background: #38a169;
+}
+
+.clear-btn {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.clear-btn:hover {
+    background: #feb2b2;
+}
+
+.info-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.info-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+/* 预览区域增强样式 */
+.preview-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.preview-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.preview-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.preview-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.preview-item:hover .preview-remove {
+    opacity: 1;
+}
+
+.preview-remove:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+}
+
+.preview-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.preview-size, .preview-compression {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.size-label, .compression-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.preview-dimensions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.dim-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* 消息样式 */
+.upload-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+.upload-message-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.upload-message-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.upload-message-warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.upload-message-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 云端选项样式 */
+.cloud-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.cloud-option {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.cloud-option:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.option-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.option-icon {
+    font-size: 2rem;
+}
+
+.option-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+}
+
+.option-description {
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.option-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.option-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.option-features li:before {
+    content: '•';
+    color: #667eea;
+    font-weight: bold;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.coming-soon {
+    background: #fef5e7;
+    color: #d69e2e;
+}
+
+.development {
+    background: #e6fffa;
+    color: #319795;
+}
+
+/* 指南样式 */
+.photo-guide {
+    background: #f7fafc;
+    padding: 3rem 0;
+}
+
+.guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.guide-title {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.guide-description {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.guide-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.card-content p {
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-content li {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.card-content li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+}
+
+.code-example {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+/* FAQ样式 */
+.faq-section {
+    padding: 3rem 0;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.faq-title {
+    font-size: 2rem;
+    color: #2d3748;
+}
+
+.faq-list {
+    space-y: 1rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f7fafc;
+}
+
+.question-text {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.question-icon {
+    color: #667eea;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .question-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .info-title {
+        font-size: 2rem;
+    }
+    
+    .method-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .method-tab {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .upload-area {
+        padding: 2rem 1rem;
+    }
+    
+    .upload-actions {
+        flex-direction: column;
+    }
+    
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cloud-options {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<!-- 引入照片上传处理脚本 -->
+<script src="/assets/js/photo-upload.js"></script>
+
+<script>
+/**
+ * 照片上传页面交互逻辑
+ */
+
+// 方法切换功能
+function initializeMethodTabs() {
+    const tabs = document.querySelectorAll('.method-tab');
+    const methods = document.querySelectorAll('.upload-method');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // 移除所有活动状态
+            tabs.forEach(t => t.classList.remove('active'));
+            methods.forEach(m => m.classList.remove('active'));
+            
+            // 添加活动状态
+            tab.classList.add('active');
+            const methodId = tab.dataset.method + '-method';
+            document.getElementById(methodId).classList.add('active');
+        });
+    });
+}
+
+// 本地文件上传功能
+function initializeLocalUpload() {
+    const uploadArea = document.getElementById('upload-area');
+    const photoInput = document.getElementById('photo-input');
+    const previewArea = document.getElementById('preview-area');
+    const previewGrid = document.getElementById('preview-grid');
+    
+    let selectedFiles = [];
+    
+    // 拖拽上传
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        
+        const files = Array.from(e.dataTransfer.files).filter(file => 
+            file.type.startsWith('image/')
+        );
+        
+        handleFiles(files);
+    });
+    
+    // 文件选择
+    photoInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        handleFiles(files);
+    });
+    
+    function handleFiles(files) {
+        selectedFiles = [...selectedFiles, ...files];
+        displayPreviews();
+        previewArea.style.display = 'block';
+    }
+    
+    function displayPreviews() {
+        previewGrid.innerHTML = '';
+        
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const previewItem = document.createElement('div');
+                previewItem.className = 'preview-item';
+                previewItem.innerHTML = `
+                    <img src="${e.target.result}" alt="${file.name}" class="preview-image">
+                    <div class="preview-info">
+                        <div class="preview-name">${file.name}</div>
+                        <div class="preview-size">${formatFileSize(file.size)}</div>
+                    </div>
+                `;
+                previewGrid.appendChild(previewItem);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+    
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
+    // 全局函数
+    window.processPhotos = function() {
+        if (selectedFiles.length === 0) {
+            alert('请先选择照片');
+            return;
+        }
+        
+        // 调用外部JavaScript文件中的照片处理功能
+        if (window.PhotoUploadProcessor) {
+            window.PhotoUploadProcessor.processPhotos(selectedFiles);
+        } else {
+            alert(`正在处理 ${selectedFiles.length} 张照片...\n\n功能开发中，敬请期待！`);
+        }
+    };
+    
+    window.clearPhotos = function() {
+        selectedFiles = [];
+        previewGrid.innerHTML = '';
+        previewArea.style.display = 'none';
+        photoInput.value = '';
+    };
+}
+
+// FAQ功能
+function initializeFaq() {
+    window.toggleFaq = function(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // 关闭所有FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // 如果当前项不是活动的，则打开它
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    };
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMethodTabs();
+    initializeLocalUpload();
+    initializeFaq();
+    
+    console.log('照片上传功能已初始化 📸');
+    
+    // 检查外部JavaScript文件是否加载成功
+    if (window.PhotoUploadProcessor) {
+        console.log('照片处理器已加载 ⚙️');
+    }
+});
+</script>
